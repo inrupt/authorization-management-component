@@ -1,0 +1,90 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.primary,
+.secondary,
+.danger,
+.small,
+.text {
+  border: none;
+  font-weight: $medium-font-weight;
+  border-radius: $button-border-radius;
+  height: min-content;
+  &:hover {
+    outline: $outline-blue solid 3px;
+  }
+}
+
+.primary,
+.secondary,
+.danger {
+  padding: $padding-button;
+}
+
+.small,
+.text {
+  padding: $padding-small-button;
+  font-size: $small-font-size;
+  max-width: fit-content;
+}
+
+.small {
+  background-color: $primary-black;
+  color: $white;
+}
+
+.text {
+  text-decoration: underline;
+  background: none;
+}
+
+.primary,
+.danger {
+  color: $white;
+}
+
+.primary {
+  background-color: $primary-black;
+  &:hover {
+    background-color: $primary-black;
+  }
+}
+
+.secondary {
+  background-color: $secondary-gray;
+  color: $white;
+}
+
+.outline {
+  padding: $padding-outlined-button;
+  background-color: $white;
+  border: 1px solid $primary-black;
+  color: $primary-black;
+  border-radius: $button-border-radius;
+  &:hover {
+    outline: $outline-blue solid 3px;
+    background-color: $white;
+    color: $primary-black;
+  }
+}
+
+.outline-clear {
+  background-color: $white;
+  border: 0px;
+  color: $danger-red;
+  border-radius: $button-border-radius;
+  &:hover {
+    outline: $danger-red solid 3px;
+    color: $danger-red;
+    background-color: $white;
+  }
+}
+
+.danger {
+  background-color: $danger-red;
+  &:hover {
+    outline: $outline-blue solid 3px;
+    background-color: $danger-red;
+  }
+}

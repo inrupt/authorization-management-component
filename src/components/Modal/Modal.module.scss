@@ -1,0 +1,78 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.modal-content {
+  padding: 0rem 2rem 1.9rem 2rem;
+}
+
+.modal-header,
+.warn-modal-header {
+  padding: 2.5rem 0rem 1rem 2rem;
+  border-bottom: none;
+  h4 {
+    font-size: 1.125rem;
+  }
+}
+
+.modal-footer,
+.warn-modal-footer {
+  border-top: none;
+  padding: 0rem 2rem 2.5rem 0rem;
+  gap: 1.5rem;
+  button {
+    margin: 0rem;
+  }
+}
+
+.warn-modal-content {
+  padding: 0rem 6rem 1.45rem 2.5rem;
+}
+
+.warn-modal-header {
+  padding: 2rem 2.2rem 1rem 2.5rem;
+  h4 {
+    font-weight: 700;
+  }
+}
+
+.warn-modal-footer {
+  gap: 0rem;
+  padding: 0rem 2.2rem 1.45rem 0rem;
+  button {
+    padding: 0.5rem 1.1rem 0.6rem 1.2rem;
+  }
+}
+
+.close {
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: max-content;
+  align-self: flex-end;
+  font-size: 1.25rem;
+}
+
+.confirmation-modal {
+  text-align: center;
+
+  .modal-header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-inline: 0rem;
+  }
+
+  .modal-footer {
+    padding-inline: 0rem;
+    justify-content: center;
+  }
+
+  i {
+    font-size: 3rem;
+  }
+}
+
+.modal-secondary-btn {
+  color: $black;
+}

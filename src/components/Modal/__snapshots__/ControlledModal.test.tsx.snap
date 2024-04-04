@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders an danger Modal 1`] = `
+<body
+  class="modal-open"
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    style="position: relative; z-index: 1050; display: block;"
+    tabindex="-1"
+  >
+    <div
+      class=""
+    >
+      <div
+        aria-labelledby="modalLabel"
+        aria-modal="true"
+        class="modal fade"
+        role="dialog"
+        style="display: block;"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                <div>
+                  <h4
+                    class="modal-title"
+                    id="modalLabel"
+                  >
+                    Deny All Access?
+                  </h4>
+                </div>
+              </h5>
+            </div>
+            <div
+              class="modal-content modal-body"
+            >
+              Agent X will not have access to this resource.
+            </div>
+            <div
+              class="modal-footer modal-footer"
+            >
+              <button
+                class="button danger btn btn-primary modal-primary-btn"
+                data-testid="modal-primary-action"
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-backdrop fade"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders an default Modal 1`] = `
+<body
+  class="modal-open"
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    style="position: relative; z-index: 1050; display: block;"
+    tabindex="-1"
+  >
+    <div
+      class=""
+    >
+      <div
+        aria-labelledby="modalLabel"
+        aria-modal="true"
+        class="modal fade"
+        role="dialog"
+        style="display: block;"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                <div>
+                  <h4
+                    class="modal-title"
+                    id="modalLabel"
+                  >
+                    Deny All Access?
+                  </h4>
+                </div>
+              </h5>
+            </div>
+            <div
+              class="modal-content modal-body"
+            >
+              Agent X will not have access to this resource.
+            </div>
+            <div
+              class="modal-footer modal-footer"
+            >
+              <button
+                class="button primary btn btn-primary modal-primary-btn"
+                data-testid="modal-primary-action"
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-backdrop fade"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Modal renders an primary Modal 1`] = `
+<body
+  class="modal-open"
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    style="position: relative; z-index: 1050; display: block;"
+    tabindex="-1"
+  >
+    <div
+      class=""
+    >
+      <div
+        aria-labelledby="modalLabel"
+        aria-modal="true"
+        class="modal fade"
+        role="dialog"
+        style="display: block;"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                <div>
+                  <h4
+                    class="modal-title"
+                    id="modalLabel"
+                  >
+                    Deny All Access?
+                  </h4>
+                </div>
+              </h5>
+            </div>
+            <div
+              class="modal-content modal-body"
+            >
+              Agent X will not have access to this resource.
+            </div>
+            <div
+              class="modal-footer modal-footer"
+            >
+              <button
+                class="button primary btn btn-primary modal-primary-btn"
+                data-testid="modal-primary-action"
+                type="button"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-backdrop fade"
+      />
+    </div>
+  </div>
+</body>
+`;

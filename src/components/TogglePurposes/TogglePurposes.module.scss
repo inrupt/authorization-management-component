@@ -1,0 +1,13 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.purpose-description {
+  padding-top: 2.5rem;
+  display: block;
+}
+
+.checkbox {
+  cursor: pointer;
+  margin-right: 1rem;
+}

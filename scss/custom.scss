@@ -1,0 +1,60 @@
+@use "../scss/_variables" as *;
+
+@import "../node_modules/bootstrap/scss/functions";
+
+@import url("bootstrap-icons/font/bootstrap-icons.css");
+
+// Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/utilities";
+
+// Bootstrap components
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/containers";
+
+@mixin font($font-family, $font-file) {
+  @font-face {
+    font-family: $font-family;
+    src: url($font-file);
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
+@include font("Mulish", "../assets/fonts/Mulish/Mulish-VariableFont_wght.ttf");
+
+body,
+#__next {
+  font-family: "Mulish", sans-serif;
+}
+
+// Default variable overrides
+
+// Layout
+$grid-gutter-width: 2rem;
+
+// Typography
+$body-font-family: "Mulish";
+$h1-font-size: 4.5rem;
+$headings-font-weight: 700;
+$headings-margin-bottom: 0;
+$headings-line-height: 1.15;
+
+// Anchor elements
+$link-color: $primary-blue;
+$link-decoration: none;
+
+@include color-scheme(dark) {
+  body {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+// Button elements
+button:focus:not(:focus-visible) {
+  outline: #2196f3 solid 3px;
+}

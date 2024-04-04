@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info renders an Info component 1`] = `
+<DocumentFragment>
+  <i
+    class="bi bi-info-circle-fill info-circle"
+  />
+</DocumentFragment>
+`;

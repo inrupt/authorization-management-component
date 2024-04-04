@@ -1,0 +1,17 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.empty-inbox {
+  font-size: 3em;
+}
+
+.empty-grant-container {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.empty-grant-container strong {
+  font-weight: 900;
+  font-size: 1.1em;
+}

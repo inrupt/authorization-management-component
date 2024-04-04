@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing SessionContext Resolving handleIncomingRedirect matches snapshot 1`] = `
+<body
+  class=""
+  style=""
+>
+  <div>
+    <div>
+      <div
+        data-testid="state"
+      >
+        unauthenticated
+      </div>
+      <div
+        data-testid="session"
+      >
+        {"info":{"isLoggedIn":false,"webId":"https://fakeurl.com/me","sessionId":"abc123"},"events":{}}
+      </div>
+      <button
+        type="button"
+      >
+        Login
+      </button>
+      <button
+        data-testid="logout"
+        type="button"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+</body>
+`;

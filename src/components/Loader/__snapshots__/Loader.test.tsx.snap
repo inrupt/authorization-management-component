@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders a loader 1`] = `
+<DocumentFragment>
+  <div
+    class="container"
+  >
+    <div
+      aria-label="loading"
+      class="spinner-border loader"
+      data-testid="loading-spinner"
+      id="loading-div"
+      role="status"
+    >
+      <span
+        class="visually-hidden"
+      >
+        Loading...
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

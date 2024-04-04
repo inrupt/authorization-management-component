@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleAccessModes renders a ToggleAccessModes component 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="access-header"
+    >
+      <div>
+        Select 
+        <b>
+          <span>
+            http://example.org/webid
+          </span>
+        </b>
+        's access to My Sample Application
+      </div>
+      <button
+        class="button small select-all-button"
+        data-testid="select-all-modes-button"
+        type="button"
+      >
+        Deselect All
+      </button>
+    </div>
+    <div
+      class="access-container"
+    >
+      <div
+        class="access-toggle"
+      >
+        <div
+          class="access-label"
+        >
+          <div
+            class="access-icon"
+          >
+            <i
+              class="bi bi-eye-fill alignStart"
+              title="View"
+            />
+          </div>
+          <div
+            class="access-icon"
+          >
+            View
+          </div>
+        </div>
+        <div
+          class="toggle-icon"
+        >
+          <div
+            class="toggle-border"
+          >
+            <label
+              class="toggle"
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              <div
+                class="toggle-control"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="access-toggle"
+      >
+        <div
+          class="access-label"
+        >
+          <div
+            class="access-icon"
+          >
+            <i
+              class="bi bi-pencil-fill alignStart"
+              title="Create, edit or delete"
+            />
+          </div>
+          <div
+            class="access-icon"
+          >
+            Create, edit or delete
+          </div>
+        </div>
+        <div
+          class="toggle-icon"
+        >
+          <div
+            class="toggle-border"
+          >
+            <label
+              class="toggle"
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              <div
+                class="toggle-control"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="access-toggle"
+      >
+        <div
+          class="access-label"
+        >
+          <div
+            class="access-icon"
+          >
+            <i
+              class="bi bi-folder-plus alignStart"
+              title="Add to"
+            />
+          </div>
+          <div
+            class="access-icon"
+          >
+            Add to
+          </div>
+        </div>
+        <div
+          class="toggle-icon"
+        >
+          <div
+            class="toggle-border"
+          >
+            <label
+              class="toggle"
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              <div
+                class="toggle-control"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`ToggleAccessModes renders only requested access modes 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="access-header"
+    >
+      <div>
+        Select 
+        <b>
+          <span>
+            http://example.org/webid
+          </span>
+        </b>
+        's access to My Sample Application
+      </div>
+      <button
+        class="button small select-all-button"
+        data-testid="select-all-modes-button"
+        type="button"
+      >
+        Deselect All
+      </button>
+    </div>
+    <div
+      class="access-container"
+    >
+      <div
+        class="access-toggle"
+      >
+        <div
+          class="access-label"
+        >
+          <div
+            class="access-icon"
+          >
+            <i
+              class="bi bi-eye-fill alignStart"
+              title="View"
+            />
+          </div>
+          <div
+            class="access-icon"
+          >
+            View
+          </div>
+        </div>
+        <div
+          class="toggle-icon"
+        >
+          <div
+            class="toggle-border"
+          >
+            <label
+              class="toggle"
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              <div
+                class="toggle-control"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <div
+        class="access-toggle"
+      >
+        <div
+          class="access-label"
+        >
+          <div
+            class="access-icon"
+          >
+            <i
+              class="bi bi-pencil-fill alignStart"
+              title="Create, edit or delete"
+            />
+          </div>
+          <div
+            class="access-icon"
+          >
+            Create, edit or delete
+          </div>
+        </div>
+        <div
+          class="toggle-icon"
+        >
+          <div
+            class="toggle-border"
+          >
+            <label
+              class="toggle"
+            >
+              <input
+                checked=""
+                type="checkbox"
+              />
+              <div
+                class="toggle-control"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,40 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.resource-div {
+  width: 100%;
+  background-color: transparent;
+  color: $primary-black;
+  display: flex;
+}
+
+.adjacent-icon {
+  width: 27.5;
+  padding-right: 5px;
+}
+
+.name-content {
+  background-color: transparent;
+  width: fit-content;
+}
+
+.chevron-icon {
+  padding-left: 5px;
+  cursor: pointer;
+  width: 5px;
+}
+
+.loader {
+  margin: 5px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+.resource-container {
+  width: 100%;
+  outline: 1px solid $secondary-border-gray;
+  border-radius: 5px;
+  padding: 10px;
+}

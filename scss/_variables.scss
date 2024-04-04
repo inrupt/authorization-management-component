@@ -1,0 +1,53 @@
+// Colors
+
+// Grays
+$black: #000;
+$primary-black: #262626;
+$dark-gray: #222222;
+$medium-gray: #666666;
+$secondary-gray: #6c757d;
+$separator-gray: #d8d8d8;
+$light-gray: #eaeaea;
+$border-gray: #ebebeb;
+$secondary-border-gray: #ced4da;
+$white: #fff;
+$green: #07b807;
+
+// Blues
+$primary-blue: #0d6efd;
+$outline-blue: #2196f3;
+
+//Purples
+$primary-purple: #7c4dff;
+$light-purple: #f9f7ff;
+$purple-10: #f1edff;
+$purple-20: #e5dbff;
+$medium-purple: #633dcc;
+$dark-purple: #633dcc;
+
+//Reds
+$danger-red: #c44539;
+
+//Oranges
+$outline-orange: #ff9800;
+
+// Spacing
+
+$padding-outlined-button: 0.8rem 1.2rem;
+$padding-small-button: 0.375rem 1rem;
+$padding-button: calc(0.8rem + 0.0625rem) calc(1.2rem + 0.0625rem);
+
+/// Borders and shadows
+
+$button-border-radius: 4px;
+
+// Fonts
+
+$small-font-size: 0.875rem;
+
+$medium-font-weight: 500;
+
+// Breakpoints
+$breakpoint-mobile: 0px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 992px;

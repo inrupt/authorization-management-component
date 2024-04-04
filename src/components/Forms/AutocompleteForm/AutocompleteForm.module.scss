@@ -1,0 +1,16 @@
+@use "../../../../scss/_variables" as *;
+
+@import "../../../../node_modules/bootstrap/scss/mixins";
+
+.form {
+  width: 100%;
+  display: grid;
+  flex-direction: row;
+  label {
+    display: flex;
+    flex-direction: column;
+  }
+  datalist {
+    width: 100%;
+  }
+}

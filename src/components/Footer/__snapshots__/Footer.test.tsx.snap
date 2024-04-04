@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders a footer 1`] = `
+<DocumentFragment>
+  <footer
+    class="footer"
+  >
+    <ul />
+  </footer>
+</DocumentFragment>
+`;
+
+exports[`Footer renders a footer with links 1`] = `
+<DocumentFragment>
+  <footer
+    class="footer"
+  >
+    <ul>
+      <li>
+        <a
+          href="https://example.com"
+        >
+          Support
+        </a>
+      </li>
+    </ul>
+  </footer>
+</DocumentFragment>
+`;

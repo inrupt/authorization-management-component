@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TogglePurpose renders a TogglePurpose component 1`] = `
+<DocumentFragment>
+  <div
+    class="purpose-description"
+  >
+    Select the purposes you wish to allow:
+    <ul />
+  </div>
+</DocumentFragment>
+`;

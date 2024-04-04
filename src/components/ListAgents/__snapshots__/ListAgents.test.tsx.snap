@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListAgents displays a modal when there are no agents 1`] = `
+<body>
+  <div>
+    <div
+      class="empty-grant-container"
+    >
+      <i
+        class="bi bi-inboxes-fill empty-inbox"
+      />
+      <p>
+        <strong>
+          You have not yet granted access to anyone.
+        </strong>
+      </p>
+      <p>
+        Once you have granted access, you will be able to see it on this page.
+      </p>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ListAgents renders a ListResources component 1`] = `
+<DocumentFragment>
+  <b
+    data-testid="agent-list-header"
+  >
+    Organizations, Apps and Companies with Granted Access
+  </b>
+  <br />
+  <br />
+  <div
+    class="table-container"
+  >
+    <table
+      class="table-style table"
+    >
+      <thead>
+        <tr>
+          <th
+            data-testid="table-heading-sort-image"
+          >
+            <span
+              class="visually-hidden"
+            >
+              Icon
+            </span>
+          </th>
+          <th
+            data-testid="table-heading-sort-name"
+          >
+            Name
+            <i
+              aria-label="Sort by name"
+              class="bi bi-sort-down sort-icon"
+              data-testid="table-heading-sort-icon-name"
+              role="button"
+              tabindex="0"
+              title="Sort by name"
+            />
+          </th>
+          <th
+            data-testid="table-heading-sort-webId"
+          >
+            WebID
+            <i
+              aria-label="Sort by webId"
+              class="bi bi-sort-down sort-icon"
+              data-testid="table-heading-sort-icon-webId"
+              role="button"
+              tabindex="0"
+              title="Sort by webId"
+            />
+          </th>
+          <th
+            data-testid="table-heading-sort-key"
+          >
+            Resources
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        data-testid="table-body"
+      >
+        <tr
+          class="row"
+          data-testid="agent-row[https://id.inrupt.com/jeswrtest51]"
+        >
+          <td
+            aria-label="Icon for Jesse Wright 🐨"
+          >
+            <img
+              alt="Icon for Jesse Wright 🐨"
+              class="icon"
+              src="https://avatars.githubusercontent.com/u/63333554?v=4"
+              title="Icon for Jesse Wright 🐨"
+            />
+          </td>
+          <td
+            class="table-entry"
+            data-testid="agent-name"
+          >
+            <span>
+              Jesse Wright 🐨
+            </span>
+          </td>
+          <td
+            class="table-entry"
+          >
+            https://id.inrupt.com/jeswrtest51
+          </td>
+          <td>
+            <i
+              class="bi bi-info-circle details-icon"
+              data-testid="details-icon"
+              role="button"
+              tabindex="0"
+              title="Open Resource Details"
+            />
+          </td>
+        </tr>
+        <tr
+          class="row"
+          data-testid="agent-row[https://id.inrupt.com/testuser12345?lookup]"
+        >
+          <td
+            aria-label="Icon for Virginia"
+          >
+            <img
+              alt="Icon for Virginia"
+              class="icon"
+              src="https://virginia.solidcommunity.net/profile/80e79c10-26b2-11ed-a130-d5bd0f09344f.jpeg"
+              title="Icon for Virginia"
+            />
+          </td>
+          <td
+            class="table-entry"
+            data-testid="agent-name"
+          >
+            <span>
+              Virginia
+            </span>
+          </td>
+          <td
+            class="table-entry"
+          >
+            https://id.inrupt.com/testuser12345?lookup
+          </td>
+          <td>
+            <i
+              class="bi bi-info-circle details-icon"
+              data-testid="details-icon"
+              role="button"
+              tabindex="0"
+              title="Open Resource Details"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</DocumentFragment>
+`;

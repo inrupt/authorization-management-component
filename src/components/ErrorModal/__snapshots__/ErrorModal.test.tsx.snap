@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorModal renders an Error with a title and a message 1`] = `
+<body
+  class="modal-open"
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    style="position: relative; z-index: 1050; display: block;"
+    tabindex="-1"
+  >
+    <div
+      class=""
+    >
+      <div
+        aria-labelledby="modalLabel"
+        aria-modal="true"
+        class="modal fade"
+        role="dialog"
+        style="display: block;"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog confirmation-modal"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                <div>
+                  <i
+                    class="bi bi-exclamation-triangle-fill"
+                    title="Confirm"
+                  />
+                  <h4
+                    class="modal-title"
+                    id="modalLabel"
+                  >
+                    Error title
+                  </h4>
+                </div>
+              </h5>
+            </div>
+            <div
+              class="modal-content modal-body"
+            >
+              <p>
+                This is an error message
+              </p>
+            </div>
+            <div
+              class="modal-footer modal-footer"
+            >
+              <button
+                class="button primary btn btn-primary modal-primary-btn"
+                data-testid="modal-primary-action"
+                type="button"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-backdrop fade"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ErrorModal renders an Error with a title, a message and a cause 1`] = `
+<body
+  class="modal-open"
+  style="overflow: hidden;"
+>
+  <div />
+  <div
+    style="position: relative; z-index: 1050; display: block;"
+    tabindex="-1"
+  >
+    <div
+      class=""
+    >
+      <div
+        aria-labelledby="modalLabel"
+        aria-modal="true"
+        class="modal fade"
+        role="dialog"
+        style="display: block;"
+        tabindex="-1"
+      >
+        <div
+          class="modal-dialog confirmation-modal"
+          role="document"
+        >
+          <div
+            class="modal-content"
+          >
+            <div
+              class="modal-header modal-header"
+            >
+              <h5
+                class="modal-title"
+              >
+                <div>
+                  <i
+                    class="bi bi-exclamation-triangle-fill"
+                    title="Confirm"
+                  />
+                  <h4
+                    class="modal-title"
+                    id="modalLabel"
+                  >
+                    Error title
+                  </h4>
+                </div>
+              </h5>
+            </div>
+            <div
+              class="modal-content modal-body"
+            >
+              <details>
+                <summary>
+                  This is an error message
+                </summary>
+                Error: Error cause
+              </details>
+            </div>
+            <div
+              class="modal-footer modal-footer"
+            >
+              <button
+                class="button primary btn btn-primary modal-primary-btn"
+                data-testid="modal-primary-action"
+                type="button"
+              >
+                Ok
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="modal-backdrop fade"
+      />
+    </div>
+  </div>
+</body>
+`;

@@ -1,0 +1,38 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  border-top: 1px solid $light-gray;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  ul {
+    width: 80%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-inline-start: 0;
+  }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $breakpoint-tablet) {
+  .footer {
+    ul {
+      flex-direction: row;
+    }
+  }
+}

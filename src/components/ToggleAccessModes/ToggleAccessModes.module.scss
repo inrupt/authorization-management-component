@@ -1,0 +1,46 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.access-container {
+  width: 100%;
+  outline: 1px solid $secondary-border-gray;
+  border-radius: 5px;
+}
+
+.access-toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $border-gray;
+  padding-inline: 1.5rem;
+}
+
+.access-label {
+  width: 100%;
+  display: flex;
+  margin: 1rem 0rem;
+}
+
+.access-icon {
+  padding-right: 1rem;
+}
+
+.access-header {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.toggle-icon {
+  padding: 0.8rem 0rem;
+  position: relative;
+}
+
+.select-all-button {
+  margin-left: 20px;
+  background-color: $white;
+  color: $black;
+  border: 1px solid rgba(38, 38, 38, 0.4);
+}

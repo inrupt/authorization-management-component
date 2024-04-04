@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListAgents defaults to an empty list 1`] = `
+<body>
+  <div>
+    <div
+      class="empty-grant-container"
+    >
+      <i
+        class="bi bi-inboxes-fill empty-inbox"
+      />
+      <p>
+        <strong>
+          You have not yet granted access to anyone.
+        </strong>
+      </p>
+      <p>
+        Once you have granted access, you will be able to see it on this page.
+      </p>
+    </div>
+  </div>
+</body>
+`;

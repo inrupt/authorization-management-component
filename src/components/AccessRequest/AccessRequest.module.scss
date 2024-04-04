@@ -1,0 +1,77 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.header {
+  text-align: center;
+  font-size: 1.125rem;
+  color: $black;
+}
+
+.access-description {
+  padding-bottom: 1rem;
+  padding-top: 1.5rem; // h1 has margin bottom of 8px, so the padding-top (must be 32px) must be set to 24px
+  display: block;
+}
+
+.access-details {
+  padding-bottom: 1rem;
+  padding-top: 3.5rem;
+  display: block;
+}
+
+.purpose-description {
+  padding-top: 15px;
+  display: block;
+}
+
+.access-container {
+  width: 100%;
+  min-height: 6rem;
+  outline: 1px solid $primary-black;
+  border-radius: 5px;
+  padding: 2rem 3rem 2.5rem;
+}
+
+.buttons {
+  display: flex;
+  // FIXME: This should be done with text-align: right instead
+  // but that isn't working for some reason
+  //padding-left: calc(100% - 323px); //
+  justify-content: flex-end;
+  padding-top: 2.5rem; // above container has 16px of padding bottom, this should have 56px of distance with it
+}
+
+.deny-text {
+  color: black;
+}
+
+.deny-button {
+  padding-right: 1.5rem;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.info-circle {
+  color: $primary-blue;
+  padding-left: 5px;
+}
+
+.info-popup {
+  background-color: white;
+  border: 1px solid $primary-black;
+  border-radius: 6px;
+  padding: 8px;
+  margin-left: 10px;
+  position: absolute;
+  width: 300px;
+  box-shadow: 2px 2px 2px 2px;
+}
+
+@media only screen and (max-width: 960px) {
+  .access-container {
+    width: 100%;
+  }
+}

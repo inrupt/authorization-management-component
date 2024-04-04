@@ -1,0 +1,30 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: transparent;
+}
+
+.loader {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0.5rem;
+  color: $primary-purple;
+  border-width: 0.2rem;
+}
+
+.custom-modal-content {
+  background-color: transparent;
+  border-color: transparent;
+  .loader {
+    color: white;
+  }
+}
+
+.custom-modal {
+  margin-top: 50vh;
+}

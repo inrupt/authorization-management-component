@@ -1,0 +1,19 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.info-circle {
+  color: $outline-blue;
+  padding-left: 0.6rem;
+}
+
+.info-popup {
+  background-color: white;
+  border: 1px solid $primary-black;
+  border-radius: 6px;
+  padding: 8px;
+  margin-left: 10px;
+  position: absolute;
+  width: 300px;
+  box-shadow: 2px 2px 2px 2px;
+}

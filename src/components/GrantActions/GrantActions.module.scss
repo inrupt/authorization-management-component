@@ -1,0 +1,40 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.gear-icon {
+  color: $primary-blue;
+  padding: 0.3rem;
+}
+
+.actions-container {
+  user-select: none;
+  font-size: medium;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+}
+
+.actions-container-row {
+  flex-direction: row;
+}
+
+.actions-container-reverse {
+  flex-direction: row-reverse;
+}
+
+.actions-container-selected {
+  border: 1px solid $primary-blue;
+}
+
+.actions-container-unselected {
+  border: none;
+}
+
+.actions-button {
+  background-color: transparent;
+}
+
+.hidden {
+  display: none;
+}

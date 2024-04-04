@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker renders a date picker with default duration 1`] = `
+<DocumentFragment>
+  <div
+    class="date-picker-container"
+  >
+    <button
+      aria-expanded="false"
+      class="button outline date-picker-toggle"
+      data-bs-auto-close="outside"
+      data-bs-toggle="dropdown"
+      data-testid="date-picker-toggle"
+      type="button"
+    >
+      3 Months
+      <i
+        class="bi bi-clock-fill icon"
+      />
+    </button>
+    <div
+      class="dropdown"
+    >
+      <div
+        class="dropdown-menu"
+      >
+        <ul
+          class="duration-list"
+        >
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Day
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Month
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Year
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              3 Months
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              6 Months
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              Forever
+            </button>
+          </li>
+        </ul>
+        <hr
+          class="dropdown-divider"
+        />
+        <li
+          class="icon-toggle"
+        >
+          <div
+            class="picker-input-container"
+          >
+            <input
+              class="picker-input"
+              type="date"
+              value="1680307200000"
+            />
+            <button
+              class="button text null"
+              type="button"
+            >
+              <i
+                class="bi bi-calendar-fill icon"
+              />
+            </button>
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`DatePicker renders a date picker with expiration date if available 1`] = `
+<DocumentFragment>
+  <div
+    class="date-picker-container"
+  >
+    <button
+      aria-expanded="false"
+      class="button outline date-picker-toggle"
+      data-bs-auto-close="outside"
+      data-bs-toggle="dropdown"
+      data-testid="date-picker-toggle"
+      type="button"
+    >
+      Tue May 26 2099
+      <i
+        class="bi bi-calendar-fill icon"
+      />
+    </button>
+    <div
+      class="dropdown"
+    >
+      <div
+        class="dropdown-menu"
+      >
+        <ul
+          class="duration-list"
+        >
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Day
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Month
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              1 Year
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              3 Months
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              6 Months
+            </button>
+          </li>
+          <li>
+            <button
+              class="button small duration-list-item"
+              disabled=""
+              type="button"
+            >
+              Forever
+            </button>
+          </li>
+        </ul>
+        <hr
+          class="dropdown-divider"
+        />
+        <li
+          class="icon-toggle"
+        >
+          <div
+            class="picker-input-container"
+          >
+            <input
+              class="picker-input"
+              type="date"
+              value="4083496803009"
+            />
+            <button
+              class="button text null"
+              type="button"
+            >
+              <i
+                class="bi bi-calendar-fill icon"
+              />
+            </button>
+          </div>
+        </li>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

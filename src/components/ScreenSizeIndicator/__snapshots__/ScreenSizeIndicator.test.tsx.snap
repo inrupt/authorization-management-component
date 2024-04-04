@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScreenSizeIndicator Component renders a ScreenSizeIndicator 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="mobile-style"
+    >
+      <i
+        class="bi bi-phone"
+        title="Phone"
+      />
+      <div>
+        mobile
+      </div>
+    </div>
+    <div
+      class="tablet-style"
+    >
+      <i
+        class="bi bi-tablet"
+        title="Tablet"
+      />
+       
+      <div>
+        tablet
+      </div>
+    </div>
+    <div
+      class="desktop-style"
+    >
+      <i
+        class="bi bi-laptop"
+        title="Laptop"
+      />
+      <div>
+        desktop
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

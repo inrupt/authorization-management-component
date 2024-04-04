@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autocomplete form renders a form 1`] = `
+<DocumentFragment>
+  <form
+    autocomplete="off"
+    class="form"
+  >
+    <div
+      class="form-group"
+    >
+      <label
+        for="test-field"
+      >
+        Test Label
+        <input
+          class="form-control"
+          data-testid="identityProviderInput"
+          id="test-field"
+          list="options-list"
+          name="test-field"
+          type="text"
+          value=""
+        />
+      </label>
+      <datalist
+        id="options-list"
+      >
+        <option
+          value="option-a"
+        >
+          Option A
+        </option>
+        <option
+          value="option-b"
+        >
+          Option B
+        </option>
+      </datalist>
+    </div>
+    <button
+      class="button primary null"
+      data-testid="loginButton"
+      type="submit"
+    >
+      Go
+    </button>
+  </form>
+</DocumentFragment>
+`;

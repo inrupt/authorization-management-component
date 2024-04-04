@@ -1,0 +1,39 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+.table-container {
+  outline: 1px solid $primary-black;
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.table-style {
+  margin: 0rem !important;
+}
+
+.sort-icon {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.details-icon {
+  color: $primary-blue;
+  width: 100%;
+  cursor: pointer;
+  text-align: right;
+}
+
+.row:hover {
+  cursor: pointer;
+  background-color: rgba(
+    red($outline-blue),
+    green($outline-blue),
+    blue($outline-blue),
+    0.15
+  );
+}
+
+.table-entry {
+  word-break: break-all;
+}

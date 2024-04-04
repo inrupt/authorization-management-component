@@ -1,0 +1,49 @@
+@use "../../../scss/_variables" as *;
+
+@import "../../../node_modules/bootstrap/scss/mixins";
+
+$transition: 0.3s;
+$width: 4em;
+$height: $width/2;
+
+.toggle-border {
+  height: $height;
+}
+
+.toggle {
+  cursor: pointer;
+
+  .toggle-control {
+    transition: $transition;
+    width: $width;
+    height: $height * 0.9;
+    border-radius: $height;
+    background-color: $white;
+    border: solid 1px $black;
+    position: relative;
+    &:after {
+      transition: $transition;
+      content: "";
+      width: $height * 0.6;
+      height: $height * 0.6;
+      background-color: $black;
+      border-radius: 50%;
+      position: absolute;
+      top: $height * 0.11;
+      left: $height * 0.11;
+    }
+  }
+
+  input {
+    display: none;
+    &:checked + .toggle-control {
+      background-color: $primary-blue;
+      border-color: $primary-blue;
+      &:after {
+        background-color: $white;
+        left: $height * 1.2;
+        top: $height * 0.11;
+      }
+    }
+  }
+}

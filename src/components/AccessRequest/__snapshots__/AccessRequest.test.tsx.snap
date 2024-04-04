@@ -1,0 +1,325 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessRequest renders an AccessRequest component 1`] = `
+<DocumentFragment>
+  <div
+    class="access-container"
+    data-testid="access-request-container"
+  >
+    <h1
+      class="header"
+      data-testid="access-request-title"
+    >
+      <b>
+        Allow 
+        <span>
+          https://mockappurl.com
+        </span>
+         access to table.png?
+      </b>
+    </h1>
+    <div
+      class="access-description"
+    >
+      <b>
+        <span>
+          https://mockappurl.com
+        </span>
+      </b>
+       is requesting access to
+    </div>
+    <div
+      class="resource-container"
+    >
+      <div
+        class="resource-div"
+      >
+        <div
+          class="adjacent-icon"
+          style="margin-left: 0px; padding-right: 6px;"
+        >
+          <i
+            class="bi bi-file-earmark-text file-icon"
+            data-testid="icon-bi bi-file-earmark-text"
+          />
+        </div>
+        <div
+          class="name-content"
+        >
+          table.png
+        </div>
+      </div>
+    </div>
+    <div
+      class="purpose-description"
+    >
+      Select the purposes you wish to allow:
+      <ul>
+        <li>
+          <input
+            aria-label="checkbox-toggle"
+            aria-labelledby="toggle-purpose-label-https://w3id.org/dpv#Advertising"
+            class="checkbox"
+            data-testid="toggle-purpose"
+            type="checkbox"
+          />
+           https://w3id.org/dpv#Advertising
+          <i
+            class="bi bi-info-circle-fill info-circle"
+          />
+        </li>
+      </ul>
+    </div>
+    <div
+      class="access-details"
+    >
+      <b>
+        <span>
+          https://mockappurl.com
+        </span>
+      </b>
+       will have access for
+    </div>
+    <div
+      class="date-picker-container"
+    >
+      <button
+        aria-expanded="false"
+        class="button outline date-picker-toggle"
+        data-bs-auto-close="outside"
+        data-bs-toggle="dropdown"
+        data-testid="date-picker-toggle"
+        type="button"
+      >
+        Sun Nov 12 2023
+        <i
+          class="bi bi-calendar-fill icon"
+        />
+      </button>
+      <div
+        class="dropdown"
+      >
+        <div
+          class="dropdown-menu"
+        >
+          <ul
+            class="duration-list"
+          >
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                1 Day
+              </button>
+            </li>
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                1 Month
+              </button>
+            </li>
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                1 Year
+              </button>
+            </li>
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                3 Months
+              </button>
+            </li>
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                6 Months
+              </button>
+            </li>
+            <li>
+              <button
+                class="button small duration-list-item"
+                disabled=""
+                type="button"
+              >
+                Forever
+              </button>
+            </li>
+          </ul>
+          <hr
+            class="dropdown-divider"
+          />
+          <li
+            class="icon-toggle"
+          >
+            <div
+              class="picker-input-container"
+            >
+              <input
+                class="picker-input"
+                max="2023-11-12"
+                type="date"
+                value="1699747200000"
+              />
+              <button
+                class="button text null"
+                type="button"
+              >
+                <i
+                  class="bi bi-calendar-fill icon"
+                />
+              </button>
+            </div>
+          </li>
+        </div>
+      </div>
+    </div>
+    <div
+      class="access-details"
+    >
+      <div>
+        <div
+          class="access-header"
+        >
+          <div>
+            Select 
+            <b>
+              <span>
+                https://mockappurl.com
+              </span>
+            </b>
+            's access to table.png
+          </div>
+          <button
+            class="button small select-all-button"
+            data-testid="select-all-modes-button"
+            type="button"
+          >
+            Select All
+          </button>
+        </div>
+        <div
+          class="access-container"
+        >
+          <div
+            class="access-toggle"
+          >
+            <div
+              class="access-label"
+            >
+              <div
+                class="access-icon"
+              >
+                <i
+                  class="bi bi-eye-fill alignStart"
+                  title="View"
+                />
+              </div>
+              <div
+                class="access-icon"
+              >
+                View
+              </div>
+            </div>
+            <div
+              class="toggle-icon"
+            >
+              <div
+                class="toggle-border"
+              >
+                <label
+                  class="toggle"
+                >
+                  <input
+                    checked=""
+                    type="checkbox"
+                  />
+                  <div
+                    class="toggle-control"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+          <div
+            class="access-toggle"
+          >
+            <div
+              class="access-label"
+            >
+              <div
+                class="access-icon"
+              >
+                <i
+                  class="bi bi-pencil-fill alignStart"
+                  title="Create, edit or delete"
+                />
+              </div>
+              <div
+                class="access-icon"
+              >
+                Create, edit or delete
+              </div>
+            </div>
+            <div
+              class="toggle-icon"
+            >
+              <div
+                class="toggle-border"
+              >
+                <label
+                  class="toggle"
+                >
+                  <input
+                    checked=""
+                    type="checkbox"
+                  />
+                  <div
+                    class="toggle-control"
+                  />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="buttons"
+    >
+      <div
+        class="deny-button"
+      >
+        <button
+          class="button outline btn btn-primary modal-primary-btn"
+          data-testid="modal-trigger"
+          type="button"
+        >
+          Deny All Access
+        </button>
+      </div>
+      <button
+        class="button primary null"
+        data-testid="confirm-access"
+        type="button"
+      >
+        Confirm Access
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
