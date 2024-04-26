@@ -14,7 +14,7 @@
     "@inrupt/internal-playwright-testids": "^2.6.0",
     "@inrupt/internal-test-env": "^2.6.0",
     "@inrupt/solid-client": "^2.0.0",
-    "@inrupt/solid-client-access-grants": "^3.0.1",
+    "@inrupt/solid-client-access-grants": "^3.0.4",
     "@inrupt/solid-client-authn-browser": "^2.0.0",
     "@inrupt/solid-client-authn-node": "^1.17.1",
     "@inrupt/solid-client-vc": "^1.0.2",
