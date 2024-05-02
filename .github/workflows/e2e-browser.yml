@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   e2e-browser:
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     environment:
       name: ${{ matrix.environment-name }}
     continue-on-error: ${{ matrix.experimental }}
