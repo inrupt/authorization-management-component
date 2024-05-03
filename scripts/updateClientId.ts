@@ -27,13 +27,14 @@ import { buildClientIdentifierDoc } from "../src/helpers/clientId/clientId";
 const CLIENT_ID_DOC_IRI =
   "https://storage.inrupt.com/87048fc7-b553-4c86-95de-633e1675f0bd/AMI/clientid.jsonld";
 
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
+
 // build client id doc
 const clientIdDoc = buildClientIdentifierDoc(
   "http://localhost:3000/",
-  CLIENT_ID_DOC_IRI
+  clientId as string
 );
-const clientId = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
 
 async function updateClientId() {
   // save it to pod
