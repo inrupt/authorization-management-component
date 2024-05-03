@@ -94,7 +94,7 @@ export interface ISessionProvider {
  * @param session
  * @param callback The callback should mutate react state to trigger re-rendering.
  */
-const discoverAccessEnpoint = async (
+const discoverAccessEndpoint = async (
   session: Session,
   callback: (endpoint: string) => void
 ): Promise<void> => {
@@ -124,7 +124,7 @@ const discoverAccessEnpoint = async (
     endpoint = await getAccessApiEndpoint(podRoot);
   } catch (e: unknown) {
     throw new DiscoveryNotAvailable(
-      `Access enpoint discovery for Pod ${podRoot} failed: ${e}`
+      `Access endpoint discovery for Pod ${podRoot} failed: ${e}`
     );
   }
   callback(endpoint);
@@ -242,7 +242,7 @@ export default function SessionProvider({
 
   useEffect(() => {
     if (state === "authenticated") {
-      discoverAccessEnpoint(session, (endpoint: string) => {
+      discoverAccessEndpoint(session, (endpoint: string) => {
         setAccessEndpoint(endpoint);
       }).catch((e) => {
         if (e instanceof Error) {

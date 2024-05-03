@@ -179,7 +179,7 @@ test("access request deny flow", async ({
 
   // deny confirmation modal
   await page.getByTestId("modal-primary-action").click();
-  await visible(page.getByText("Access Request Denied"), false, {
+  await visible(page.getByText("Access Request Denied"), true, {
     tags: ["wcag2a", "wcag21a", "wcag21aa"],
   });
 

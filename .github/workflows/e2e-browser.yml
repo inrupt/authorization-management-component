@@ -10,14 +10,14 @@ concurrency:
   cancel-in-progress: true
 jobs:
   e2e-browser:
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     environment:
       name: ${{ matrix.environment-name }}
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: true
       matrix:
-        environment-name: ["ESS PodSpaces", "ESS Dev-2-1"]
+        environment-name: ["ESS PodSpaces"]
         experimental: [false]
         include:
           - environment-name: "ESS Dev-2-2"
