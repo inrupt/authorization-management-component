@@ -50,6 +50,7 @@ exports[`login page renders a manage page 1`] = `
         <input
           class="header-input form-control"
           data-testid="agent-search-input"
+          disabled=""
           placeholder="Search"
           type="search"
           value=""
