@@ -63,7 +63,7 @@ function SuspendedList({
   onDetails,
   searchString,
   agents,
-  onEmptyAgents
+  onEmptyAgents,
 }: {
   onDetails: (_agent: string) => void;
   searchString: string;
