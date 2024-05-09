@@ -33,7 +33,7 @@ const clientSecret = process.env.CLIENT_SECRET;
 // build client id doc
 const clientIdDoc = buildClientIdentifierDoc(
   "http://localhost:3000/",
-  clientId as string
+  CLIENT_ID_DOC_IRI
 );
 
 async function updateClientId() {
