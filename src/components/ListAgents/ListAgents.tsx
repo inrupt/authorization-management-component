@@ -126,17 +126,12 @@ export default function ListAgents({
   agents,
   onDetails,
   searchString,
-  onEmptyAgents,
 }: {
   agents: string[];
   searchString?: string;
   onDetails: (_agent: string) => void;
-  onEmptyAgents?: () => void;
 }) {
   if (agents.length === 0) {
-    if (onEmptyAgents) {
-      onEmptyAgents();
-    }
     return <EmptyAgentPage />;
   }
   return (

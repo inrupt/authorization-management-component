@@ -29,7 +29,7 @@ import AuthenticatedRoute from "../src/authentication/context/AuthenticatedRoute
 
 export default function ManagePage() {
   const [value, setValue] = useState("");
-  const [disableSearch, setDisableSearch] = useState(false);
+  const [disableSearch, setDisableSearch] = useState(true);
   const { push } = useRouter();
   return (
     <AuthenticatedRoute>
@@ -61,7 +61,7 @@ export default function ManagePage() {
               })
             }
             searchString={value}
-            onEmptyAgents={() => setDisableSearch(true)}
+            onNotEmptyAgents={() => setDisableSearch(false)}
           />
         </div>
       </main>

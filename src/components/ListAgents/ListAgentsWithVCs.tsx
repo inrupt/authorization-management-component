@@ -63,12 +63,10 @@ function SuspendedList({
   onDetails,
   searchString,
   agents,
-  onEmptyAgents,
 }: {
   onDetails: (_agent: string) => void;
   searchString: string;
   agents?: string[];
-  onEmptyAgents?: () => void;
 }) {
   if (agents === undefined) {
     return <Loader />;
@@ -78,7 +76,6 @@ function SuspendedList({
       agents={agents}
       onDetails={onDetails}
       searchString={searchString}
-      onEmptyAgents={onEmptyAgents}
     />
   );
 }
@@ -86,11 +83,11 @@ function SuspendedList({
 export default function ListAgentsWithVCs({
   onDetails,
   searchString,
-  onEmptyAgents,
+  onNotEmptyAgents,
 }: {
   onDetails: (_agent: string) => void;
   searchString: string;
-  onEmptyAgents?: () => void;
+  onNotEmptyAgents?: () => void;
 }) {
   const { session, accessEndpoint, endpointConfiguration } =
     useContext(SessionContext);
@@ -115,12 +112,19 @@ export default function ListAgentsWithVCs({
     }
   }, [accessEndpoint, endpointConfiguration, session, isValidAccessGrant]);
 
+  useEffect(() => {
+    if (agents !== undefined && agents.length > 0) {
+      if (onNotEmptyAgents) {
+        onNotEmptyAgents();
+      }
+    }
+  }, [agents]);
+
   return (
     <SuspendedList
       agents={agents}
       onDetails={onDetails}
       searchString={searchString}
-      onEmptyAgents={onEmptyAgents}
     />
   );
 }
