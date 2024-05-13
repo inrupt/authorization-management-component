@@ -61,7 +61,11 @@ export default function ManagePage() {
               })
             }
             searchString={value}
-            onNotEmptyAgents={() => setDisableSearch(false)}
+            onAgentUpdate={(agentCount) => {
+              agentCount === 0
+                ? setDisableSearch(true)
+                : setDisableSearch(false);
+            }}
           />
         </div>
       </main>
