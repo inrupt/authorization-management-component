@@ -28,8 +28,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  const clientId = `https://${req.headers.host}/api/app`;
-  const hostname = `https://${req.headers.host}/`;
+  const clientId = new URL("/api/app", `https://${req.headers.host}`);
+  const hostname = new URL("/", `https://${req.headers.host}`);
 
   const acceptedType = accepts(req).type([
     "application/ld+json",
