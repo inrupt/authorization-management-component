@@ -28,8 +28,8 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  const clientId = new URL("/api/app", `https://${req.headers.host}`);
-  const hostname = new URL("/", `https://${req.headers.host}`);
+  const clientId = new URL("/api/app", `https://${process.env.VERCEL_URL}`);
+  const hostname = new URL("/", `https://${process.env.VERCEL_URL}`);
 
   const acceptedType = accepts(req).type([
     "application/ld+json",
