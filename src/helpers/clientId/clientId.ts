@@ -21,19 +21,15 @@
 
 /* eslint-disable import/prefer-default-export */
 
-export function buildClientIdentifierDoc(hostname: string, clientId: string) {
+export function buildClientIdentifierDoc(hostname: URL, clientId: URL) {
   return {
     "@context": "https://www.w3.org/ns/solid/oidc-context.jsonld",
     client_id: clientId,
     client_name: "Inrupt AMC",
     // URLs the user will be redirected back to upon successful authentication:
-    redirect_uris: [hostname, hostname.concat("login")],
+    redirect_uris: [hostname, new URL("login", hostname)],
     // URLs the user can be redirected to back to upon successful logout:
-    post_logout_redirect_uris: [
-      hostname,
-      hostname.concat("login"),
-      hostname.concat("*"),
-    ],
+    post_logout_redirect_uris: [hostname, new URL("login", hostname)],
     // Support refresh_tokens for refreshing the session:
     grant_types: ["authorization_code", "refresh_token"],
     // The scope must be explicit, as the default doesn't include offline_access,
@@ -45,7 +41,7 @@ export function buildClientIdentifierDoc(hostname: string, clientId: string) {
     require_auth_time: false,
     tos_uri: "https://www.inrupt.com/terms-conditions",
     policy_uri: "https://www.inrupt.com/privacy-policy",
-    logo_uri: hostname.concat("inrupt-hex-filled.svg"),
+    logo_uri: new URL("inrupt-hex-filled.svg", hostname),
     client_uri: "https://www.inrupt.com/",
   };
 }

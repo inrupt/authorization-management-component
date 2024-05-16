@@ -32,8 +32,8 @@ const clientSecret = process.env.CLIENT_SECRET;
 
 // build client id doc
 const clientIdDoc = buildClientIdentifierDoc(
-  "http://localhost:3000/",
-  CLIENT_ID_DOC_IRI
+  new URL("http://localhost:3000/"),
+  new URL(CLIENT_ID_DOC_IRI)
 );
 
 async function updateClientId() {
