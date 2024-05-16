@@ -29,10 +29,7 @@ export function buildClientIdentifierDoc(hostname: URL, clientId: URL) {
     // URLs the user will be redirected back to upon successful authentication:
     redirect_uris: [hostname, new URL("login", hostname)],
     // URLs the user can be redirected to back to upon successful logout:
-    post_logout_redirect_uris: [
-      hostname,
-      new URL("login", hostname),
-    ],
+    post_logout_redirect_uris: [hostname, new URL("login", hostname)],
     // Support refresh_tokens for refreshing the session:
     grant_types: ["authorization_code", "refresh_token"],
     // The scope must be explicit, as the default doesn't include offline_access,
