@@ -32,7 +32,6 @@ export function buildClientIdentifierDoc(hostname: URL, clientId: URL) {
     post_logout_redirect_uris: [
       hostname,
       new URL("login", hostname),
-      new URL("*", hostname),
     ],
     // Support refresh_tokens for refreshing the session:
     grant_types: ["authorization_code", "refresh_token"],
