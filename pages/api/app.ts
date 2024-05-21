@@ -29,10 +29,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   let hostname;
-  if (${process.env.VERCEL_ENV} === "production") {
-      hostname = ${process.env.PROD_DOMAIN};
+  if (process.env.VERCEL_ENV === "production") {
+      hostname = process.env.PROD_DOMAIN;
   } else {
-      hostname = ${process.env.VERCEL_BRANCH_URL};
+      hostname = process.env.VERCEL_BRANCH_URL;
   }
 
   const clientId = new URL("/api/app", `https://${hostname}`);
