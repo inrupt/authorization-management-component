@@ -28,15 +28,15 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(405).send("Method Not Allowed");
   }
 
-  let hostname;
+  let domain;
   if (process.env.VERCEL_ENV === "production") {
-      hostname = process.env.PROD_DOMAIN;
+    domain = process.env.PROD_DOMAIN;
   } else {
-      hostname = process.env.VERCEL_BRANCH_URL;
+    domain = process.env.VERCEL_BRANCH_URL;
   }
 
-  const clientId = new URL("/api/app", `https://${hostname}`);
-  const hostname = new URL("/", `https://${hostname}`);
+  const clientId = new URL("/api/app", `https://${domain}`);
+  const hostname = new URL("/", `https://${domain}`);
 
   const acceptedType = accepts(req).type([
     "application/ld+json",
