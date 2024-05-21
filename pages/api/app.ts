@@ -32,7 +32,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (process.env.VERCEL_ENV === "production") {
     domain = process.env.PROD_DOMAIN;
   } else {
-    domain = process.env.VERCEL_BRANCH_URL;
+    domain = process.env.VERCEL_URL;
   }
 
   const clientId = new URL("/api/app", `https://${domain}`);
