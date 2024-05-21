@@ -83,9 +83,11 @@ function SuspendedList({
 export default function ListAgentsWithVCs({
   onDetails,
   searchString,
+  onAgentUpdate,
 }: {
   onDetails: (_agent: string) => void;
   searchString: string;
+  onAgentUpdate?: (agentCount: number) => void;
 }) {
   const { session, accessEndpoint, endpointConfiguration } =
     useContext(SessionContext);
@@ -109,6 +111,16 @@ export default function ListAgentsWithVCs({
         });
     }
   }, [accessEndpoint, endpointConfiguration, session, isValidAccessGrant]);
+
+  useEffect(() => {
+    if (typeof onAgentUpdate === "function") {
+      let agentsCount = 0;
+      if (agents !== undefined) {
+        agentsCount = agents.length;
+      }
+      onAgentUpdate(agentsCount);
+    }
+  }, [agents]);
 
   return (
     <SuspendedList
