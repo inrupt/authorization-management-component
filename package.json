@@ -57,7 +57,7 @@
     "@inrupt/eslint-config-base": "^3.2.1",
     "@inrupt/eslint-config-react": "^3.0.2",
     "@inrupt/internal-playwright-helpers": "^3.0.2",
-    "@inrupt/internal-playwright-testids": "^3.0.2",
+    "@inrupt/internal-playwright-testids": "^3.1.0",
     "@inrupt/internal-test-env": "^3.0.2",
     "@inrupt/jest-jsdom-polyfills": "^3.0.2",
     "@next/eslint-plugin-next": "^12.2.4",
