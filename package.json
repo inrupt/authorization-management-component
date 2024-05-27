@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint:eslint -- --fix; npm run lint:prettier -- --write",
     "lint:eslint": "eslint . --ext=.js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check .",
-    "prepare": "husky install && npm run preparePurposes",
+    "prepare": "husky && npm run preparePurposes",
     "start": "next start",
     "test": "TZ=UTC jest --runInBand",
     "test:e2e": "playwright test",
