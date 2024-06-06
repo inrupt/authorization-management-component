@@ -34,6 +34,31 @@ export default function Header({
 }) {
   const { logout, session } = useContext(SessionContext);
 
+  const isUrl = (candidateUrl: string | URL) => {
+    try {
+      // If url is not URL-shaped, this will throw.
+      // eslint-disable-next-line no-new
+      new URL(candidateUrl);
+      return true;
+    } catch (_e) {
+      return false;
+    }
+  };
+
+  const handleLogout = async () => {
+    if (
+      session.info.clientAppId !== undefined &&
+      isUrl(session.info.clientAppId)
+    ) {
+      await logout({
+        logoutType: "idp",
+        postLogoutUrl: new URL("/", window.location.href).toString(),
+      });
+    } else {
+      await logout({ logoutType: "app" });
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles["header-top"]}>
@@ -44,12 +69,7 @@ export default function Header({
           <Button
             variant="text"
             data-testid="logout-button"
-            onClick={() =>
-              logout({
-                logoutType: "idp",
-                postLogoutUrl: new URL("/", window.location.href).toString(),
-              })
-            }
+            onClick={() => handleLogout()}
             className={styles["logout-button"]}
           >
             Logout
