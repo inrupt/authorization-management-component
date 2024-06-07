@@ -54,14 +54,13 @@ test("user can login into the application", async ({
   await setup();
   await login();
 
-  const endpointRequest = page.waitForRequest((request) =>
-    request.url().startsWith(endSessionEndpoint)
-  );
+  // As we now distinguish between idp and app logouts, this logout won't
+  // cause a redirection through the idp logout page anymore, as, locally,
+  // the AMC does not have a Solid-OIDc client ID, and hence the logout will
+  // be treated as an app logout.
   await page.getByTestId("logout-button").click();
-  // Redirect through the idp logout page
-  await endpointRequest;
 
-  await page.waitForURL(new URL("login?returnTo=%2F", AMI_URL).href);
+  await page.waitForURL(new URL("login", AMI_URL).href);
 
   // Land back at the applications login page
   await login();
