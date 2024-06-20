@@ -34,6 +34,16 @@ export default function Header({
 }) {
   const { logout, session } = useContext(SessionContext);
 
+  const isUrl = (candidateUrl: string | URL) => {
+    try {
+      // If url is not URL-shaped, this will throw
+      new URL(candidateUrl);
+      return true;
+    } catch (_e) {
+      return false;
+    }
+  };
+
   /**
    * Handles the logout process of the application, which can be of two types: app logout and idp logout.
    *
@@ -48,7 +58,7 @@ export default function Header({
   const handleLogout = async () => {
     if (
       session.info.clientAppId !== undefined &&
-      URL.canParse(session.info.clientAppId)
+      isUrl(session.info.clientAppId)
     ) {
       await logout({
         logoutType: "idp",
