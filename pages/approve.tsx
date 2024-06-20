@@ -72,6 +72,8 @@ function Approval({
   const [approveDenyError, setApproveDenyError] = useState<any>(false);
   const [signed, setSigned] = useState<Signed>();
 
+  const [updateAcr, setUpdateAcr] = useState(false);
+
   const fetchAccessRequest = useCallback(() => {
     setRequest(null);
     setErr(null);
@@ -94,6 +96,10 @@ function Approval({
   }, [accessRequest, sessionFetch, getNameFromWebId]);
 
   useEffect(fetchAccessRequest, [fetchAccessRequest]);
+
+  useEffect(() => {
+    console.log(updateAcr);
+  }, [updateAcr]);
 
   return (
     <>
@@ -218,11 +224,13 @@ function Approval({
       {request && (
         <AccessRequest
           accessRequest={request}
+          updateAcr={updateAcr}
           onExpired={() =>
             router.replace({
               pathname: postLogoutUrl,
             })
           }
+          toggleLegacy={() => setUpdateAcr(!updateAcr)}
           onSubmit={async (data) => {
             setLoadingApproveDeny(true);
 
@@ -234,6 +242,9 @@ function Approval({
                   data.overrides,
                   {
                     fetch: sessionFetch,
+                    // updateAcr is false by default. However, for legacy pods provisioned
+                    // before March 2023, we still need to update the ACR.
+                    updateAcr: updateAcr,
                   }
                 );
                 setSigned({ type: "Approved", vc: signedVc.id });

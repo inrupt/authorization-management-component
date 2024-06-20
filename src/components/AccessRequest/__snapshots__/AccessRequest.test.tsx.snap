@@ -71,6 +71,26 @@ exports[`AccessRequest renders an AccessRequest component 1`] = `
       </ul>
     </div>
     <div
+      class="legacy-description"
+    >
+      Select if your Pod needs Legacy support:
+      <div
+        class="legacy-checkbox"
+      >
+        <input
+          aria-label="checkbox-toggle"
+          aria-labelledby="toggle-legacy-label"
+          class="checkbox"
+          data-testid="toggle-legacy"
+          type="checkbox"
+        />
+         Legacy support
+        <i
+          class="bi bi-info-circle-fill info-circle"
+        />
+      </div>
+    </div>
+    <div
       class="access-details"
     >
       <b>

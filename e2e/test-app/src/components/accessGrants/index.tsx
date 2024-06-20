@@ -84,7 +84,7 @@ export default function AccessGrant({
           }
         )
       );
-      setSharedResourceIri(getSourceUrl(savedFile));
+      setSharedResourceIri(getSourceUrl(savedFile) + "asdjhaksdjha");
     } catch (e) {
       setSharedResourceIri("Resource creation failed");
     }

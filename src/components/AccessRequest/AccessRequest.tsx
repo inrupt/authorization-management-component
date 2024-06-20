@@ -37,6 +37,7 @@ import ToggleAccessModes from "../ToggleAccessModes/ToggleAccessModes";
 import TogglePurposes from "../TogglePurposes/TogglePurposes";
 import styles from "./AccessRequest.module.scss";
 import getResources from "./utils/getResources";
+import ToggleLegacy from "../ToggleLegacy/ToggleLegacy";
 
 type Overrides = Partial<
   Pick<ApproveAccessRequestOverrides, "access" | "purpose" | "expirationDate">
@@ -48,6 +49,8 @@ type Submit =
 
 export interface Props {
   accessRequest: DatasetWithId;
+  updateAcr: boolean;
+  toggleLegacy: () => void;
   onSubmit: (overrides: Submit) => void;
   onExpired: () => void;
   fetch: typeof fetch;
@@ -61,6 +64,8 @@ function resourcesToName(names: string[]) {
 
 export default function AccessRequest({
   accessRequest,
+  updateAcr,
+  toggleLegacy,
   onSubmit,
   onExpired,
   fetch: authFetch,
@@ -237,6 +242,11 @@ export default function AccessRequest({
       ) : (
         <br />
       )}
+      <ToggleLegacy
+        toggleDescription="Pods provisioned before March 2023 are classified as legacy and require additional support"
+        toggleValue={updateAcr}
+        toggleLegacy={toggleLegacy}
+      />
 
       <div className={styles["access-details"]}>
         <b>
