@@ -44,7 +44,7 @@
     "event-emitter-promisify": "^1.1.0",
     "n3": "^1.17.0",
     "next": "^14.1.1",
-    "rdf-dereference": "^2.1.0",
+    "rdf-dereference": "^2.2.0",
     "rdf-namespaces": "^1.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
