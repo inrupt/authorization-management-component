@@ -45,6 +45,9 @@ export async function addToCache(url: string, cache: PurposeCache) {
       ) {
         // eslint-disable-next-line no-param-reassign
         (cache[subject.value] ??= {})[
+          // if the predicate.value is not a key of the map object this won't be executed,
+          // as it is already checked in the if expression
+          // @ts-ignore
           map[predicate.value] as "purposeLabel" | "definition"
         ] ??= object.value;
       }
