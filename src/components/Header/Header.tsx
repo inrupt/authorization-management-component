@@ -34,6 +34,41 @@ export default function Header({
 }) {
   const { logout, session } = useContext(SessionContext);
 
+  const isUrl = (candidateUrl: string | URL) => {
+    try {
+      // If url is not URL-shaped, this will throw
+      new URL(candidateUrl);
+      return true;
+    } catch (_e) {
+      return false;
+    }
+  };
+
+  /**
+   * Handles the logout process of the application, which can be of two types: app logout and idp logout.
+   *
+   * For those OPs supporting Solid-OIDC Client Identifiers, the logout will log users out of their OP by
+   * redirecting them away from the application. For users to be redirected back, a post-logout URL must
+   * be included. This is handled by the IDP logout.
+   * For OPs that are not Solid-OIDC enabled, the log out will just clear any session data from the browser:
+   * it does not log the users out of their OP nor redirect them away. This is handled by the app logout.
+   *
+   * If the session client ID is a URL, the OP is Solid-OIDC enabled; otherwise, it is not.
+   */
+  const handleLogout = async () => {
+    if (
+      session.info.clientAppId !== undefined &&
+      isUrl(session.info.clientAppId)
+    ) {
+      await logout({
+        logoutType: "idp",
+        postLogoutUrl: new URL(window.origin).href,
+      });
+    } else {
+      await logout({ logoutType: "app" });
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles["header-top"]}>
@@ -44,12 +79,7 @@ export default function Header({
           <Button
             variant="text"
             data-testid="logout-button"
-            onClick={() =>
-              logout({
-                logoutType: "idp",
-                postLogoutUrl: new URL("/", window.location.href).toString(),
-              })
-            }
+            onClick={() => handleLogout()}
             className={styles["logout-button"]}
           >
             Logout
