@@ -95,11 +95,17 @@ function Approval({
       .catch((error) => setErr(error));
   }, [accessRequest, sessionFetch, getNameFromWebId]);
 
-  useEffect(fetchAccessRequest, [fetchAccessRequest]);
+  const checkErrorForNonExistingResource = (approveDenyError: any) => {
+    if (approveDenyError.response && approveDenyError.response.status === 404) {
+      return "Error: Granting access to a non-existing resource is not supported in Legacy pods.";
+    }
+    if ("message" in approveDenyError) {
+      return `${approveDenyError}`;
+    }
+    return `${approveDenyError.message}`;
+  };
 
-  useEffect(() => {
-    console.log(updateAcr);
-  }, [updateAcr]);
+  useEffect(fetchAccessRequest, [fetchAccessRequest]);
 
   return (
     <>
@@ -216,9 +222,8 @@ function Approval({
         <br />
         <br />
         <code>
-          {approveDenyError && "message" in approveDenyError
-            ? `${approveDenyError}`
-            : `${approveDenyError.message}`}
+          {approveDenyError &&
+            `${checkErrorForNonExistingResource(approveDenyError)}`}
         </code>
       </Modal>
       {request && (
