@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleLegacy renders a ToggleLegacy component 1`] = `
+<DocumentFragment>
+  <div
+    class="legacy-description"
+  >
+    Select if your Pod needs Legacy support:
+    <div
+      class="legacy-checkbox"
+    >
+      <input
+        aria-label="checkbox-toggle"
+        aria-labelledby="toggle-legacy-label"
+        class="checkbox"
+        data-testid="toggle-legacy"
+        type="checkbox"
+      />
+       Legacy support
+      <i
+        class="bi bi-info-circle-fill info-circle"
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;

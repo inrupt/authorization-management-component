@@ -72,6 +72,8 @@ function Approval({
   const [approveDenyError, setApproveDenyError] = useState<any>(false);
   const [signed, setSigned] = useState<Signed>();
 
+  const [updateAcr, setUpdateAcr] = useState(false);
+
   const fetchAccessRequest = useCallback(() => {
     setRequest(null);
     setErr(null);
@@ -92,6 +94,16 @@ function Approval({
       })
       .catch((error) => setErr(error));
   }, [accessRequest, sessionFetch, getNameFromWebId]);
+
+  const checkErrorForNonExistingResource = (approveDenyError: any) => {
+    if (approveDenyError.response && approveDenyError.response.status === 404) {
+      return "Error: Granting access to a non-existing resource is not supported in Legacy pods.";
+    }
+    if ("message" in approveDenyError) {
+      return `${approveDenyError}`;
+    }
+    return `${approveDenyError.message}`;
+  };
 
   useEffect(fetchAccessRequest, [fetchAccessRequest]);
 
@@ -210,19 +222,20 @@ function Approval({
         <br />
         <br />
         <code>
-          {approveDenyError && "message" in approveDenyError
-            ? `${approveDenyError}`
-            : `${approveDenyError.message}`}
+          {approveDenyError &&
+            `${checkErrorForNonExistingResource(approveDenyError)}`}
         </code>
       </Modal>
       {request && (
         <AccessRequest
           accessRequest={request}
+          updateAcr={updateAcr}
           onExpired={() =>
             router.replace({
               pathname: postLogoutUrl,
             })
           }
+          toggleLegacy={() => setUpdateAcr(!updateAcr)}
           onSubmit={async (data) => {
             setLoadingApproveDeny(true);
 
@@ -234,6 +247,9 @@ function Approval({
                   data.overrides,
                   {
                     fetch: sessionFetch,
+                    // updateAcr is false by default. However, for legacy pods provisioned
+                    // before March 2023, we still need to update the ACR.
+                    updateAcr: updateAcr,
                   }
                 );
                 setSigned({ type: "Approved", vc: signedVc.id });
