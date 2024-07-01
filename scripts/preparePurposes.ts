@@ -25,7 +25,7 @@ import { addToCache, defaultUrls } from "../src/session/PurposeCache";
 // Undici struggles to follow these redirects for some reason,
 // but the browser handles it fine
 const redirected = {
-  "https://w3id.org/dpv": "https://w3c.github.io/dpv/dpv/dpv.ttl",
+  "https://w3id.org/dpv": "https://w3id.org/dpv/2.0",
 };
 
 async function main() {
