@@ -32,9 +32,6 @@ export function buildClientIdentifierDoc(hostname: URL, clientId: URL) {
     post_logout_redirect_uris: [hostname, new URL("login", hostname)],
     // Support refresh_tokens for refreshing the session:
     grant_types: ["authorization_code", "refresh_token"],
-    // The scope must be explicit, as the default doesn't include offline_access,
-    // preventing the refresh token from being issued.
-    scope: "openid webid offline_access",
     response_types: ["code"],
     token_endpoint_auth_method: "none",
     application_type: "web",
