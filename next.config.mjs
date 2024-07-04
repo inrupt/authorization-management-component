@@ -33,34 +33,34 @@ const nextConfig = {
     locales: ["en"],
     defaultLocale: "en",
   },
-  // Optional build-time configuration options
-  sentry: {
-    // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
-    // sections below for information on the following options:
-    //
-    // We want to expose source maps:
-    hideSourceMaps: false,
-    // disableServerWebpackPlugin: true,
-    // disableClientWebpackPlugin: true,
-    // autoInstrumentServerFunctions: true,
-    // widenClientFileUpload: true,
-    // transpileClientSDK: true
-    global: globalThis,
+  experimental: {
+    instrumentationHook: true,
   },
 };
 
-const sentryWebpackPluginOptions = {
+const sentry = {
+  // See the 'Configure Source Maps' and 'Configure Legacy Browser Support'
+  // sections below for information on the following options:
+  //
+  // We want to expose source maps:
+  hideSourceMaps: false,
+  // disableServerWebpackPlugin: true,
+  // disableClientWebpackPlugin: true,
+  // autoInstrumentServerFunctions: true,
+  // widenClientFileUpload: true,
+  // transpileClientSDK: true
+  global: globalThis,
+
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
   // the following options are set automatically, and overriding them is not
   // recommended:
   //   release, url, org, project, authToken, configFile, stripPrefix,
   //   urlPrefix, include, ignore
-
-  silent: true, // Suppresses all logs
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
+  silent: true, // Suppresses all logs
 };
 
 // Make sure adding Sentry options is the last code to run before exporting, to
 // ensure that your source maps include changes from all other Webpack plugins
-export default withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+export default withSentryConfig(nextConfig, sentry);
