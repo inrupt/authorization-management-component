@@ -9,6 +9,14 @@ updates:
     ignore:
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+    groups:
+      internal-tooling:
+        patterns:
+          - "@inrupt/internal-*"
+          - "@inrupt/eslint-*"
+      external-types:
+        patterns:
+          - "@types/*"
   # Enable version updates for our CI tooling.
   - package-ecosystem: "github-actions"
     # For GitHub Actions, setting the directory to / will check for workflow
