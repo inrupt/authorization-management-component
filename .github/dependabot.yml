@@ -13,6 +13,7 @@ updates:
       internal-tooling:
         patterns:
           - "@inrupt/internal-*"
+          - "@inrupt/jest-*"
           - "@inrupt/eslint-*"
       external-types:
         patterns:
@@ -33,3 +34,12 @@ updates:
     ignore:
       - dependency-name: "eslint"
         update-types: ["version-update:semver-major"]
+    groups:
+      internal-tooling:
+        patterns:
+          - "@inrupt/internal-*"
+          - "@inrupt/jest-*"
+          - "@inrupt/eslint-*"
+      external-types:
+        patterns:
+          - "@types/*"
