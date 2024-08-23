@@ -8,7 +8,7 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "eslint"
-        update-types: ["version-update:semver-major"]
+        update-types: [ "version-update:semver-major" ]
     groups:
       internal-tooling:
         patterns:
@@ -33,7 +33,7 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "eslint"
-        update-types: ["version-update:semver-major"]
+        update-types: [ "version-update:semver-major" ]
     groups:
       internal-tooling:
         patterns:
