@@ -8,7 +8,7 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "eslint"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
     groups:
       internal-tooling:
         patterns:
@@ -18,6 +18,7 @@ updates:
       external-types:
         patterns:
           - "@types/*"
+
   # Enable version updates for our CI tooling.
   - package-ecosystem: "github-actions"
     # For GitHub Actions, setting the directory to / will check for workflow
@@ -25,6 +26,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+
   # Enable version updates for embedded demo app
   - package-ecosystem: "npm"
     # Look for `package.json` and `package-lock.json` files in the `e2e/browser/test-app` directory.
@@ -33,13 +35,11 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "eslint"
-        update-types: [ "version-update:semver-major" ]
+        update-types: ["version-update:semver-major"]
     groups:
       internal-tooling:
         patterns:
           - "@inrupt/internal-*"
-          - "@inrupt/jest-*"
-          - "@inrupt/eslint-*"
       external-types:
         patterns:
           - "@types/*"
