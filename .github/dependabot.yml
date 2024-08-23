@@ -13,6 +13,7 @@ updates:
       internal-tooling:
         patterns:
           - "@inrupt/internal-*"
+          - "@inrupt/eslint-*"
       external-types:
         patterns:
           - "@types/*"
