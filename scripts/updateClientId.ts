@@ -21,7 +21,6 @@
 
 import { overwriteFile } from "@inrupt/solid-client";
 import { Session } from "@inrupt/solid-client-authn-node";
-import { Blob } from "buffer";
 import { buildClientIdentifierDoc } from "../src/helpers/clientId/clientId";
 
 const CLIENT_ID_DOC_IRI =
