@@ -18,7 +18,7 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-import dereference from "rdf-dereference";
+import { rdfDereferencer } from "rdf-dereference";
 import { Quad } from "@rdfjs/types";
 import { SKOS } from "../helpers/access/access";
 
@@ -32,7 +32,7 @@ export type PurposeCache = Record<
   { purposeLabel?: string | undefined; definition?: string | undefined }
 >;
 export async function addToCache(url: string, cache: PurposeCache) {
-  const { data } = await dereference.dereference(url, {});
+  const { data } = await rdfDereferencer.dereference(url, {});
 
   return new Promise((res, rej) => {
     data.on("data", ({ subject, predicate, object, graph }: Quad) => {
