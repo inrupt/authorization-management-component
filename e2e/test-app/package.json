@@ -13,7 +13,7 @@
   "dependencies": {
     "@inrupt/internal-playwright-testids": "^3.2.4",
     "@inrupt/internal-test-env": "^3.2.4",
-    "@inrupt/solid-client": "^2.1.0",
+    "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.1.0",
     "@inrupt/solid-client-authn-browser": "^2.2.6",
     "@inrupt/solid-client-authn-node": "^2.2.6",
