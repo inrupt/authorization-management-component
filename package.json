@@ -53,7 +53,7 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.9.1",
+    "@axe-core/playwright": "^4.10.0",
     "@inrupt/eslint-config-base": "^3.2.4",
     "@inrupt/eslint-config-react": "^3.2.4",
     "@inrupt/internal-playwright-helpers": "^3.2.4",
