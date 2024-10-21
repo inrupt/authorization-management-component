@@ -17,7 +17,7 @@
     "@inrupt/solid-client-access-grants": "^3.1.0",
     "@inrupt/solid-client-authn-browser": "^2.2.6",
     "@inrupt/solid-client-authn-node": "^2.2.6",
-    "@inrupt/solid-client-vc": "^1.1.0",
+    "@inrupt/solid-client-vc": "^1.1.1",
     "next": "^14.2.15",
     "react": "^18.2.0",
     "react-dom": "18.3.1"
