@@ -42,7 +42,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "event-emitter-promisify": "^1.1.0",
-    "n3": "^1.22.3",
+    "n3": "^1.23.1",
     "next": "^14.2.13",
     "rdf-dereference": "^2.2.0",
     "rdf-namespaces": "^1.11.0",
