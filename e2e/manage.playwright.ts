@@ -170,7 +170,7 @@ test.afterAll(async () => {
   await Promise.all([owner.logout(), requestor.logout()]);
 });
 
-test.skip("manage page", async ({ page, auth, visible, setup }) => {
+test("manage page", async ({ page, auth, visible, setup }) => {
   await setup();
 
   await page.click("button[data-testid=advanced-login]");
@@ -284,7 +284,7 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   await expect(page.getByTestId(`grant-popover-${fileName}`)).toBeVisible();
 
   // Test the popover closes on blur.
-  await page.getByTestId('agent-info-box').click();
+  await page.getByTestId("agent-info-box").click();
   await expect(page.getByTestId(`grant-popover-${fileName}`)).not.toBeVisible();
 
   // Open the sidebar
