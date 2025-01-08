@@ -288,7 +288,7 @@ export default function ResourcesPage() {
 
           {typeof agent === "string" && (
             <>
-              <div data-testid="agent-info-box" className={styles["agent-info-box"]}>
+              <div className={styles["agent-info-box"]} data-testid="agent-info-box">
                 <DisplayImage url={agent} className={styles["agent-icon"]} />
                 <div>
                   <h2>
