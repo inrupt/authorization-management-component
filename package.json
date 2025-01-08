@@ -48,7 +48,7 @@
     "rdf-namespaces": "^1.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "reactstrap": "^9.2.0",
+    "reactstrap": "^9.2.3",
     "sass": "^1.79.4",
     "uuid": "^10.0.0"
   },
