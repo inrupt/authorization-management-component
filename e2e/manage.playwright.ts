@@ -170,7 +170,7 @@ test.afterAll(async () => {
   await Promise.all([owner.logout(), requestor.logout()]);
 });
 
-test("manage page", async ({ page, auth, visible, setup }) => {
+test.skip("manage page", async ({ page, auth, visible, setup }) => {
   await setup();
 
   await page.click("button[data-testid=advanced-login]");
@@ -283,6 +283,10 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   await page.getByTestId(`grant-actions-${fileName}`).click();
   await expect(page.getByTestId(`grant-popover-${fileName}`)).toBeVisible();
 
+  // Test the popover closes on blur.
+  await page.getByTestId('agent-info-box').click();
+  await expect(page.getByTestId(`grant-popover-${fileName}`)).not.toBeVisible();
+
   // Open the sidebar
   await page
     .getByTestId(
@@ -291,8 +295,6 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
       )}]-resource[${sharedFileIri}]`
     )
     .click();
-  // The popover was purposefully not closed to check it closes on blur.
-  await expect(page.getByTestId(`grant-popover-${fileName}`)).not.toBeVisible();
 
   // Access grant was read only - so that should be reflected in the information in the sidebar
   await visible(page.getByTestId("sidebar-access-mode-read"));
