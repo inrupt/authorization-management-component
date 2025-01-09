@@ -32,7 +32,7 @@
     "@inrupt/solid-client-access-grants": "^3.1.1",
     "@inrupt/solid-client-authn-browser": "^2.2.4",
     "@inrupt/solid-client-authn-node": "^2.2.4",
-    "@inrupt/solid-client-vc": "^1.1.0",
+    "@inrupt/solid-client-vc": "^1.2.0",
     "@popperjs/core": "^2.11.8",
     "@rdfjs/types": "^1.1.2",
     "@sentry/nextjs": "^8.43.0",
