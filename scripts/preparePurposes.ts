@@ -19,8 +19,12 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import { addToCache, defaultUrls } from "../src/session/PurposeCache";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Undici struggles to follow these redirects for some reason,
 // but the browser handles it fine
@@ -52,6 +56,6 @@ async function main() {
 }
 
 main().catch((e) => {
-  console.log("Error occured preparing purposes", e);
+  console.log("Error occurred preparing purposes", e);
   process.exit(1);
 });

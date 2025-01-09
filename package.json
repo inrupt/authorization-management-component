@@ -2,6 +2,7 @@
   "name": "authorization-management-component",
   "version": "0.1.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "prepare:e2e": "cd e2e/test-app ; npm ci; npm run build",
@@ -17,11 +18,11 @@
     "start": "next start",
     "test": "TZ=UTC jest --runInBand",
     "test:e2e": "playwright test",
-    "update-clientId": "npm ci && npx ts-node --skip-project scripts/updateClientId.ts",
+    "update-clientId": "npm ci && node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only scripts/updateClientId.ts",
     "bump-version": "changeset add",
     "version": "changeset version",
     "release": "changeset publish",
-    "preparePurposes": "npx ts-node --skip-project scripts/preparePurposes.ts"
+    "preparePurposes": "node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only scripts/preparePurposes.ts"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",
