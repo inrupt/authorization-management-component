@@ -39,7 +39,8 @@ async function main() {
     await addToCache(ont, cache);
   }
 
-  const cachePath = path.join(__dirname, "..", "src", "cache");
+  const cachePath = process.argv[2];
+  console.log("Path for cached purposes file: ", cachePath);
 
   if (!fs.existsSync(cachePath)) {
     fs.mkdirSync(cachePath);
@@ -52,6 +53,6 @@ async function main() {
 }
 
 main().catch((e) => {
-  console.log("Error occured preparing purposes", e);
+  console.log("Error occurred preparing purposes", e);
   process.exit(1);
 });

@@ -4,3 +4,4 @@
 /.next
 /e2e/test-app/.next
 src/cache/purposesParsed.ts
+/dist

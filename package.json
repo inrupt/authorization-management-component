@@ -17,11 +17,11 @@
     "start": "next start",
     "test": "TZ=UTC jest --runInBand",
     "test:e2e": "playwright test",
-    "update-clientId": "npm ci && npx ts-node --skip-project scripts/updateClientId.ts",
+    "update-clientId": "npm ci && tsc --project tsconfig.scripts.json && node dist/scripts/updateClientId.js",
     "bump-version": "changeset add",
     "version": "changeset version",
     "release": "changeset publish",
-    "preparePurposes": "npx ts-node --skip-project scripts/preparePurposes.ts"
+    "preparePurposes": "tsc --project tsconfig.scripts.json && node dist/scripts/preparePurposes.js ./src/cache"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",
@@ -58,7 +58,7 @@
     "@inrupt/eslint-config-react": "^3.2.4",
     "@inrupt/internal-playwright-helpers": "^3.2.4",
     "@inrupt/internal-playwright-testids": "^3.2.2",
-    "@inrupt/internal-test-env": "^3.2.2",
+    "@inrupt/internal-test-env": "^3.2.4",
     "@inrupt/jest-jsdom-polyfills": "^3.2.4",
     "@next/eslint-plugin-next": "^14.2.15",
     "@playwright/test": "~1.47.2",
@@ -84,7 +84,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.4"
+    "typescript": "^5.7.2"
   },
   "browserslist": {
     "production": [
