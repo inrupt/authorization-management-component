@@ -19,12 +19,8 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 import fs from "fs";
-import path, { dirname } from "path";
-import { fileURLToPath } from "url";
+import path from "path";
 import { addToCache, defaultUrls } from "../src/session/PurposeCache";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 // Undici struggles to follow these redirects for some reason,
 // but the browser handles it fine
@@ -43,7 +39,8 @@ async function main() {
     await addToCache(ont, cache);
   }
 
-  const cachePath = path.join(__dirname, "..", "src", "cache");
+  const cachePath = process.argv[2];
+  console.log('Path for cached purposes file: ', cachePath);
 
   if (!fs.existsSync(cachePath)) {
     fs.mkdirSync(cachePath);
@@ -53,6 +50,7 @@ async function main() {
     path.join(cachePath, "purposesParsed.ts"),
     `export default ${JSON.stringify(cache, null, 2)}`
   );
+
 }
 
 main().catch((e) => {

@@ -2,7 +2,6 @@
   "name": "authorization-management-component",
   "version": "0.1.1",
   "private": true,
-  "type": "module",
   "scripts": {
     "build": "next build",
     "prepare:e2e": "cd e2e/test-app ; npm ci; npm run build",
@@ -18,11 +17,11 @@
     "start": "next start",
     "test": "TZ=UTC jest --runInBand",
     "test:e2e": "playwright test",
-    "update-clientId": "npm ci && node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only scripts/updateClientId.ts",
+    "update-clientId": "npm ci && tsc --project tsconfig.scripts.json && node dist/scripts/updateClientId.js",
     "bump-version": "changeset add",
     "version": "changeset version",
     "release": "changeset publish",
-    "preparePurposes": "node --experimental-specifier-resolution=node --loader ts-node/esm/transpile-only scripts/preparePurposes.ts"
+    "preparePurposes": "tsc --project tsconfig.scripts.json && node dist/scripts/preparePurposes.js ./src/cache"
   },
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",
@@ -59,7 +58,7 @@
     "@inrupt/eslint-config-react": "^3.2.4",
     "@inrupt/internal-playwright-helpers": "^3.2.4",
     "@inrupt/internal-playwright-testids": "^3.2.2",
-    "@inrupt/internal-test-env": "^3.2.2",
+    "@inrupt/internal-test-env": "^3.2.4",
     "@inrupt/jest-jsdom-polyfills": "^3.2.4",
     "@next/eslint-plugin-next": "^14.2.15",
     "@playwright/test": "~1.47.2",
