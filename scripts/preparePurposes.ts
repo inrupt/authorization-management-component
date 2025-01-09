@@ -40,7 +40,7 @@ async function main() {
   }
 
   const cachePath = process.argv[2];
-  console.log('Path for cached purposes file: ', cachePath);
+  console.log("Path for cached purposes file: ", cachePath);
 
   if (!fs.existsSync(cachePath)) {
     fs.mkdirSync(cachePath);
@@ -50,7 +50,6 @@ async function main() {
     path.join(cachePath, "purposesParsed.ts"),
     `export default ${JSON.stringify(cache, null, 2)}`
   );
-
 }
 
 main().catch((e) => {
