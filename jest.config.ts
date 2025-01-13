@@ -63,10 +63,10 @@ async function jestConfig() {
   // Remove the ignore for /node_modules/ this allows Jest to transpile ESM
   // modules for use from CommonJS which is necessary until Jest fully supports ESM:
   // https://github.com/vercel/next.js/issues/40183
-  // https://github.com/vercel/next.js/blob/v12.3.1/packages/next/build/jest/jest.ts#L151-L152
+  // https://github.com/vercel/next.js/blob/v15.1.4/packages/next/src/build/jest/jest.ts#L175-L176
   nextJestConfig.transformIgnorePatterns =
     nextJestConfig.transformIgnorePatterns?.filter(
-      (pattern: string) => pattern !== "/node_modules/"
+      (pattern: string) => !pattern.startsWith("/node_modules/")
     );
 
   return nextJestConfig;
