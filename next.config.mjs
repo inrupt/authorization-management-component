@@ -28,13 +28,9 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   i18n: {
     locales: ["en"],
     defaultLocale: "en",
-  },
-  experimental: {
-    instrumentationHook: true,
   },
 };
 

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,7 +19,9 @@
     "incremental": true,
     "isolatedModules": true,
     // https://github.com/microsoft/TypeScript/wiki/Performance#controlling-types-inclusion:
-    "types": ["jest"]
+    "types": [
+      "jest"
+    ]
   },
   "include": [
     "next-env.d.ts",
@@ -26,6 +32,10 @@
     "sentry.client.config.js",
     "src/helpers/clientId/clientId.ts"
   ],
-  "exclude": ["node_modules"],
-  "ignorePatterns": [".eslintrc.js"]
+  "exclude": [
+    "node_modules"
+  ],
+  "ignorePatterns": [
+    ".eslintrc.js"
+  ]
 }
