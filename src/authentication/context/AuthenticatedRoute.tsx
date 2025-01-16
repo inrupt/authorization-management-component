@@ -40,7 +40,7 @@ interface AuthenticatedRouteProps {
 }
 
 function AuthenticatedRoute({
-  children
+  children,
 }: AuthenticatedRouteProps): JSX.Element {
   const { session, sessionRequestInProgress } = useContext(SessionContext);
   const { replace, isReady, asPath } = useRouter();

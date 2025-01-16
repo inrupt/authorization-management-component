@@ -32,7 +32,7 @@ interface AuthenticationProviderProps {
 }
 
 export default function AuthenticationProvider({
-  children
+  children,
 }: AuthenticationProviderProps): ReactElement {
   const { session, sessionRequestInProgress } = useContext(SessionContext);
   const router = useRouter();
