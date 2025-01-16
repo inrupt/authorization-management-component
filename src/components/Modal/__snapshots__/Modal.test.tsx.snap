@@ -4,7 +4,7 @@ exports[`Modal renders a Modal 1`] = `
 <body>
   <div>
     <button
-      class="button default btn btn-primary modal-primary-btn"
+      class="button primary btn btn-primary modal-primary-btn"
       data-testid="modal-trigger"
       type="button"
     >

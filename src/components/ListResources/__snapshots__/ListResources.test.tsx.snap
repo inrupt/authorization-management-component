@@ -7,13 +7,8 @@ exports[`ListResources renders a ListResources component 1`] = `
   >
     <div
       class="adjacent-icon"
-      style="margin-left: 0px; padding-right: 6px;"
-    >
-      <i
-        class="bi bi-folder file-icon"
-        data-testid="icon-bi bi-folder"
-      />
-    </div>
+      style="margin-left: 0px; padding-right: 0px;"
+    />
     <div
       class="name-content"
     >
