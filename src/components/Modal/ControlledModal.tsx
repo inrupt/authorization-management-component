@@ -43,12 +43,12 @@ export default function ControlledModal({
   onClose,
   confirmationImage,
   onPrimaryAction,
-  primaryActionText,
+  primaryActionText = "Save",
   onSecondaryAction,
   secondaryActionText,
   title,
   children,
-  variant,
+  variant = "default",
   isDanger,
 }: Props) {
   const [transitionedIn, setTransitionedIn] = useState<boolean>(false);
@@ -124,13 +124,3 @@ export default function ControlledModal({
     </Modal>
   );
 }
-
-ControlledModal.defaultProps = {
-  variant: "default",
-  primaryActionText: "Save",
-  onPrimaryAction: undefined,
-  confirmationImage: undefined,
-  onSecondaryAction: undefined,
-  secondaryActionText: undefined,
-  children: undefined,
-};
