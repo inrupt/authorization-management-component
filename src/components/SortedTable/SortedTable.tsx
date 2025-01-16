@@ -59,10 +59,6 @@ function Th<T extends string, V>({
   );
 }
 
-Th.defaultProps = {
-  sortBy: undefined,
-};
-
 export function Thead<T extends string, V>({
   headings,
   inverted,
@@ -104,7 +100,3 @@ export function DetailsIcon({ onClick }: { onClick?: () => void | undefined }) {
     />
   );
 }
-
-DetailsIcon.defaultProps = {
-  onClick: undefined,
-};

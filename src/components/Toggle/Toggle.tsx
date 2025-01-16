@@ -44,7 +44,3 @@ export default function Toggle({ checked, onClick, disabled }: Props) {
     </div>
   );
 }
-
-Toggle.defaultProps = {
-  disabled: false,
-};

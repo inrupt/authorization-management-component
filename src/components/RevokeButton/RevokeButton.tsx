@@ -138,9 +138,3 @@ export default function RevokeButton({
     </>
   );
 }
-
-RevokeButton.defaultProps = {
-  name: undefined,
-  variant: "danger",
-  onClick: undefined,
-};

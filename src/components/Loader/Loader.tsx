@@ -37,7 +37,3 @@ export default function Loader({ hidden }: { hidden?: boolean }): ReactElement {
     </div>
   );
 }
-
-Loader.defaultProps = {
-  hidden: false,
-};

@@ -19,7 +19,6 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import T from "prop-types";
 import { useEffect, useCallback, useContext, ReactElement } from "react";
 import { useRouter } from "next/router";
 import { EVENTS } from "@inrupt/solid-client-authn-core";
@@ -28,13 +27,13 @@ import useReturnUrl from "../hooks/useReturnUrl";
 import Loader from "../../components/Loader/Loader";
 import { SessionContext } from "../../session/SessionProvider";
 
-interface IAuthenticationProvider {
+interface AuthenticationProviderProps {
   children: ReactElement;
 }
 
 export default function AuthenticationProvider({
   children,
-}: IAuthenticationProvider): ReactElement {
+}: AuthenticationProviderProps): ReactElement {
   const { session, sessionRequestInProgress } = useContext(SessionContext);
   const router = useRouter();
   const { restore } = useReturnUrl();
@@ -82,7 +81,3 @@ export default function AuthenticationProvider({
 
   return sessionRequestInProgress ? <Loader /> : children;
 }
-
-AuthenticationProvider.propTypes = {
-  children: T.node.isRequired,
-};

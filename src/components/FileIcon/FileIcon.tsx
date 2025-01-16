@@ -61,7 +61,3 @@ export default function FileIcon({
     />
   );
 }
-
-FileIcon.defaultProps = {
-  expanded: false,
-};

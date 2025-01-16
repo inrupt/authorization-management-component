@@ -19,8 +19,7 @@
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import { useContext, useEffect } from "react";
-import T from "prop-types";
+import { JSX, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import Loader from "../../components/Loader/Loader";
 import { SessionContext } from "../../session/SessionProvider";
@@ -36,10 +35,13 @@ const isAuthCallback = (asPath: string) => {
   }
 };
 
-interface IAuthenticatedRoute {
+interface AuthenticatedRouteProps {
   children: JSX.Element | JSX.Element[];
 }
-function AuthenticatedRoute({ children }: IAuthenticatedRoute): JSX.Element {
+
+function AuthenticatedRoute({
+  children,
+}: AuthenticatedRouteProps): JSX.Element {
   const { session, sessionRequestInProgress } = useContext(SessionContext);
   const { replace, isReady, asPath } = useRouter();
 
@@ -63,9 +65,5 @@ function AuthenticatedRoute({ children }: IAuthenticatedRoute): JSX.Element {
   // eslint-disable-next-line react/jsx-no-useless-fragment
   return session.info.isLoggedIn ? <>{children}</> : <Loader />;
 }
-
-AuthenticatedRoute.propTypes = {
-  children: T.node.isRequired,
-};
 
 export default AuthenticatedRoute;

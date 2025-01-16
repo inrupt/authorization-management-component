@@ -18,7 +18,7 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-import { Reducer, useEffect, useMemo, useReducer } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 
 export interface HeaderData<T, V> {
   key: T;
@@ -101,9 +101,12 @@ export function useOrdered<T extends string, V, R extends Record<T, V>>(
   headings: HeaderData<T, V>[],
   data: R[]
 ) {
+  // The use of [any] below is not ideal but the change from React 18 to 19 included a significant change to the useReducer
+  // interface and this was sufficient to get this working. We can revisit this later if we want to be more type-specific.
   const [{ orderedData, inverted }, sortBy] = useReducer<
-    Reducer<OrderState<T, V, R>, T | R[]>,
-    { headings: HeaderData<T, V>[]; data: R[] }
+    OrderState<T, V, R>,
+    { headings: HeaderData<T, V>[]; data: R[] },
+    [any]
   >(orderReducer, { headings, data }, init);
   const ret = useMemo(
     () => ({ orderedData, sortBy, inverted }),

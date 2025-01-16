@@ -149,7 +149,3 @@ export default function ListAgents({
     </>
   );
 }
-
-ListAgents.defaultProps = {
-  searchString: undefined,
-};
