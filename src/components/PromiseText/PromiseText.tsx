@@ -18,7 +18,7 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-import { useContext, useEffect, useMemo, useState } from "react";
+import { JSX, useContext, useEffect, useMemo, useState } from "react";
 import { WorkerContext } from "../../session/WorkerProvider";
 import styles from "./PromiseText.module.scss";
 

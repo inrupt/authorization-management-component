@@ -20,7 +20,7 @@
 //
 
 import Image from "next/image";
-import { useContext } from "react";
+import { JSX, useContext } from "react";
 import Link from "next/link";
 import logo from "../../../public/inrupt_logo-2020.svg";
 import { SessionContext } from "../../session/SessionProvider";

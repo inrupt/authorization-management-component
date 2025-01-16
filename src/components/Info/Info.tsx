@@ -23,7 +23,7 @@ import { useState } from "react";
 import styles from "./Info.module.scss";
 
 export interface Props {
-  children: React.ReactFragment;
+  children: React.ReactNode;
 }
 
 export default function Info({ children }: Props) {
