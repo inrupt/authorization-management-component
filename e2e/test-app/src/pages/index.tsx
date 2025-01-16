@@ -137,7 +137,3 @@ export default function Home() {
     </div>
   );
 }
-
-AccessGrantContainer.defaultProps = {
-  sessionInfo: undefined,
-};

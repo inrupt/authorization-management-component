@@ -90,7 +90,3 @@ export default function Header({
     </header>
   );
 }
-
-Header.defaultProps = {
-  children: undefined,
-};

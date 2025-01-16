@@ -40,8 +40,8 @@ interface Props
 
 export default function Modal({
   modalTriggerText,
-  variant,
-  testIdSuffix,
+  variant = "default",
+  testIdSuffix = "",
   onClick,
   ...props
 }: Props) {
@@ -82,10 +82,3 @@ export default function Modal({
     </>
   );
 }
-
-Modal.defaultProps = {
-  testIdSuffix: "",
-  variant: "default",
-  onPrimaryAction: undefined,
-  onClick: undefined,
-};

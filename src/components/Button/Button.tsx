@@ -33,7 +33,7 @@ interface Props {
 
 export default function Button({
   variant = "primary",
-  type,
+  type = "button",
   children,
   className,
   ...other
@@ -41,7 +41,7 @@ export default function Button({
   return (
     <button
       // eslint-disable-next-line react/button-has-type
-      type={type || "button"}
+      type={type}
       className={`button ${styles[variant]} ${className || null}`}
       {...other}
     >
@@ -50,10 +50,3 @@ export default function Button({
   );
 }
 
-Button.defaultProps = {
-  variant: "primary",
-  type: "button",
-  className: undefined,
-  onClick: null,
-  disabled: false,
-};

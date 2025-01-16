@@ -33,10 +33,10 @@ export interface Props {
 }
 
 export default function ListResources({
-  depth: tempDepth,
+  depth: tempDepth = 0,
   type,
   name,
-  icon,
+  icon = true,
   resourceIri,
   contains,
 }: Props) {
@@ -120,8 +120,3 @@ export default function ListResources({
     </>
   );
 }
-
-ListResources.defaultProps = {
-  depth: 0,
-  icon: true,
-};

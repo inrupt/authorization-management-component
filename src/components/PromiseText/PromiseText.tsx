@@ -132,12 +132,3 @@ export function DisplayImage({
     </>
   );
 }
-
-DisplayAgent.defaultProps = {
-  fallback: undefined,
-};
-
-DisplayImage.defaultProps = {
-  className: undefined,
-  fallback: undefined,
-};

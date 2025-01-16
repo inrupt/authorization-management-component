@@ -28,8 +28,8 @@ export default function GrantActions({
   testidSuffix,
   children,
   label,
-  flexDirection,
-  popoverPlacement,
+  flexDirection = "row",
+  popoverPlacement = "left",
   actionClicked,
   setActionClicked,
   isSidebar,
@@ -101,10 +101,3 @@ export default function GrantActions({
     </div>
   );
 }
-
-GrantActions.defaultProps = {
-  children: undefined,
-  label: undefined,
-  flexDirection: "row",
-  popoverPlacement: "left",
-};
