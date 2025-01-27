@@ -49,7 +49,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "reactstrap": "^9.2.3",
-    "sass": "^1.82.0",
+    "sass": "^1.83.4",
     "uuid": "^10.0.0"
   },
   "devDependencies": {
