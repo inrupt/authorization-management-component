@@ -31,7 +31,7 @@
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.2.1",
     "@inrupt/solid-client-authn-browser": "^2.3.0",
-    "@inrupt/solid-client-authn-node": "^2.2.4",
+    "@inrupt/solid-client-authn-node": "^2.3.0",
     "@inrupt/solid-client-vc": "^1.1.0",
     "@popperjs/core": "^2.11.8",
     "@rdfjs/types": "^1.1.2",
