@@ -26,7 +26,7 @@
   "dependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.27.12",
-    "@comunica/context-entries": "^4.0.2",
+    "@comunica/context-entries": "^4.1.0",
     "@comunica/core": "^4.0.2",
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.2.1",
