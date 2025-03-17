@@ -11,8 +11,8 @@
     "lint:eslint": "eslint . --ext=.js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@inrupt/internal-playwright-testids": "^3.2.4",
-    "@inrupt/internal-test-env": "^3.2.4",
+    "@inrupt/internal-playwright-testids": "^3.2.5",
+    "@inrupt/internal-test-env": "^3.2.5",
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.2.1",
     "@inrupt/solid-client-authn-browser": "^2.3.0",
