@@ -193,13 +193,14 @@ test("manage page", async ({ page, auth, visible, setup }) => {
   await auth.login({ allow: true, timeout: TIMEOUT });
 
   async function testSearch(str: string) {
-    await page.getByTestId("agent-search-input").fill(str);
+    await page.getByTestId("agent-search-input").fill(str, {
+      timeout: TIMEOUT,
+    });
     await visible(
       page.getByTestId(`agent-row[${assertNonNull(requestor.info.webId)}]`)
     );
     if (requestorName) {
-      const agentName = await page.getByTestId("agent-name");
-      await expect(agentName).toContainText(requestorName);
+      await expect(page.getByTestId("agent-name")).toContainText(requestorName);
     }
   }
 
