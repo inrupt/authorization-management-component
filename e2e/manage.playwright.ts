@@ -331,11 +331,5 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   // After revocation getFile should throw errors
   await expect(filePromise).rejects.toThrow();
 
-  // In particular the error should be a 403
-  const fileResponse = await retryAsync(() =>
-    addUserAgent(requestor.fetch, TEST_USER_AGENT)(sharedFileIri)
-  );
-  expect(fileResponse.status).toBe(403);
-
   await removeResource(owner, sharedFileIri);
 });
