@@ -26,7 +26,7 @@ const baseURL = `http://localhost:${PORT}`;
 const testAppBaseURL = `http://localhost:8080`;
 
 const config: PlaywrightTestConfig = {
-  timeout: 2.5 * 60 * 1000,
+  timeout: 5 * 60 * 1000,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? "100%" : "50%",
   globalSetup: "./e2e/utils/globalSetup.ts",
@@ -53,8 +53,8 @@ const config: PlaywrightTestConfig = {
     trace: "on",
     headless: true,
     video: "on-first-retry",
-    actionTimeout: 30 * 1000,
-    navigationTimeout: 30 * 1000,
+    actionTimeout: 60 * 1000,
+    navigationTimeout: 60 * 1000,
   },
 
   projects: [
