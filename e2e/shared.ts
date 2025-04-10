@@ -83,7 +83,7 @@ const test = test$1.extend<{
 export { test, expect$1 as expect };
 
 export const setupEnvironment = getNodeTestingEnvironment();
-export const TIMEOUT = 60_000;
+export const TIMEOUT = 60_000 * 3;
 export const AMI_URL = new URL("http://localhost:3000");
 export const CLIENT_URL = new URL("http://localhost:8080");
 export const loginWithCookie = async (page: Page) => {

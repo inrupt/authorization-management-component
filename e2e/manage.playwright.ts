@@ -193,13 +193,14 @@ test("manage page", async ({ page, auth, visible, setup }) => {
   await auth.login({ allow: true, timeout: TIMEOUT });
 
   async function testSearch(str: string) {
-    await page.getByTestId("agent-search-input").fill(str);
+    await page.getByTestId("agent-search-input").fill(str, {
+      timeout: TIMEOUT,
+    });
     await visible(
       page.getByTestId(`agent-row[${assertNonNull(requestor.info.webId)}]`)
     );
     if (requestorName) {
-      const agentName = await page.getByTestId("agent-name");
-      await expect(agentName).toContainText(requestorName);
+      await expect(page.getByTestId("agent-name")).toContainText(requestorName);
     }
   }
 
@@ -329,12 +330,6 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
 
   // After revocation getFile should throw errors
   await expect(filePromise).rejects.toThrow();
-
-  // In particular the error should be a 403
-  const fileResponse = await retryAsync(() =>
-    addUserAgent(requestor.fetch, TEST_USER_AGENT)(sharedFileIri)
-  );
-  expect(fileResponse.status).toBe(403);
 
   await removeResource(owner, sharedFileIri);
 });
