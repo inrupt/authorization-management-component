@@ -39,7 +39,7 @@ export default function AuthenticationProvider({
   const { restore } = useReturnUrl();
 
   const onError = useCallback(
-    async (error?: string | null, description?: string | null) => {
+    async (error: string | null, description?: string | null | Error) => {
       // FIXME: alert error
       console.log(description);
 
@@ -65,7 +65,7 @@ export default function AuthenticationProvider({
   }, [router]);
 
   useEffect(() => {
-    session.events.on(EVENTS.ERROR, onError);
+    session.events.on("error", onError);
     session.events.on("login", restore);
     session.events.on("logout", onLogout);
     session.events.on("sessionRestore", onSessionRestore);
