@@ -43,7 +43,21 @@ jobs:
           name: code-coverage
           path: coverage/
       - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@72254bbe1edac07d7ccfa52eff5ca15fc28bf607 # v1.2.1
+        uses: SonarSource/sonarqube-scan-action@@2500896589ef8f7247069a56136f8dc177c27ccf # v5.2.0
+        env:
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_DEV_INRUPT_COM_GITHUB_TOKEN }}
+
+  check:
+    if: always()
+    needs:
+      - lint
+      - sonarqube
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Decide whether the needed jobs succeeded or failed
+        uses: re-actors/alls-green@05ac9388f0aebcb5727afa17fcccfecd6f8ec5fe # release/v1
         with:
-          host: ${{ secrets.SONARQUBE_HOST }}
-          login: ${{ secrets.SONARQUBE_DEV_INRUPT_COM_GITHUB_TOKEN }}
+          allowed-skips: sonarqube
+          jobs: ${{ toJSON(needs) }}
