@@ -214,9 +214,9 @@ export default function AccessGrant({
                 redirectCallback: (url) => {
                   return router.push(url);
                 },
-                // The following IRI redirects the user to PodBrowser so that they can approve/deny the request.
+                // The following IRI redirects the user so that they can approve/deny the request.
                 fallbackAccessManagementUi: `http:localhost:3000/accessRequest/`,
-                // Note: the following is only necessary because this projects depends for testing purpose
+                // Note: the following is only necessary because this project depends for testing purpose
                 // on solid-client-authn-browser, which is picked up automatically for convenience in
                 // browser-side apps. A typical node app would not have this dependence.
                 fetch: session.fetch,
