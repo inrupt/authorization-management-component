@@ -22,7 +22,7 @@
 import { useCallback } from "react";
 import { useRouter } from "next/router";
 
-export const RETURN_TO_PAGE_KEY = "podbrowser:returnTo";
+export const RETURN_TO_PAGE_KEY = "client:returnTo";
 
 const useReturnUrl = () => {
   const router = useRouter();
