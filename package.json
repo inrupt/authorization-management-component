@@ -47,7 +47,7 @@
     "rdf-dereference": "^4.0.0",
     "rdf-namespaces": "^1.11.0",
     "react": "^19.1.0",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.1.0",
     "reactstrap": "^9.2.3",
     "sass": "^1.83.4",
     "uuid": "^11.1.0"
