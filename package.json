@@ -30,7 +30,7 @@
     "@comunica/core": "^4.0.2",
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.2.1",
-    "@inrupt/solid-client-authn-browser": "^2.3.0",
+    "@inrupt/solid-client-authn-browser": "^2.5.0",
     "@inrupt/solid-client-authn-node": "^2.3.0",
     "@inrupt/solid-client-vc": "^1.1.0",
     "@popperjs/core": "^2.11.8",
@@ -67,7 +67,7 @@
     "@testing-library/user-event": "^14.5.2",
     "@types/axe-core": "^3.0.6",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.15.3",
+    "@types/node": "^22.15.17",
     "@types/react": "^19.0.12",
     "@types/react-dom": "^19.0.4",
     "@types/uuid": "^10.0.0",
@@ -84,7 +84,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "ts-jest": "^29.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   },
   "browserslist": {
     "production": [
