@@ -16,16 +16,16 @@
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.3.0",
     "@inrupt/solid-client-authn-browser": "^2.5.0",
-    "@inrupt/solid-client-authn-node": "^2.4.1",
+    "@inrupt/solid-client-authn-node": "^2.5.0",
     "@inrupt/solid-client-vc": "^1.2.0",
-    "next": "^15.3.2",
+    "next": "^15.3.3",
     "react": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "22.15.17",
+    "@types/node": "24.0.0",
     "@types/react": "19.0.12",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.3.2",
+    "eslint-config-next": "15.3.3",
     "typescript": "5.8.3"
   }
 }
