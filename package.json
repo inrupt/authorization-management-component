@@ -61,7 +61,7 @@
     "@inrupt/internal-test-env": "^3.2.4",
     "@inrupt/jest-jsdom-polyfills": "^3.2.7",
     "@next/eslint-plugin-next": "^15.2.2",
-    "@playwright/test": "~1.51.1",
+    "@playwright/test": "~1.53.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.5.2",
