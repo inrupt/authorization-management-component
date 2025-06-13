@@ -27,7 +27,7 @@ jobs:
           name: code-coverage
           path: coverage/
 
-  sonar:
+  sonarqube:
     name: run sonarqube
     if: ${{ github.actor != 'dependabot[bot]' }}
     needs: [test]
