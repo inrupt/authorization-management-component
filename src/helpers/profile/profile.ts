@@ -74,7 +74,7 @@ export async function getFromWebIdHelper(
   // This should always use the unauthenticated fetch
   try {
     webIdProfile = await getSolidDataset(webId);
-  } catch (e) {
+  } catch (_e) {
     webIdProfile = null;
   }
 
@@ -112,7 +112,7 @@ export async function getFromWebIdHelper(
         },
       ),
     );
-  } catch (e) {
+  } catch (_e) {
     return null;
   }
 }

@@ -64,11 +64,11 @@ export default function ManagePage() {
               })
             }
             searchString={value}
-            onAgentUpdate={(agentCount) => {
+            onAgentUpdate={(agentCount) =>
               agentCount === 0
                 ? setDisableSearch(true)
-                : setDisableSearch(false);
-            }}
+                : setDisableSearch(false)
+            }
           />
         </div>
       </main>

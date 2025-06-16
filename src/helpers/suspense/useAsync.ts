@@ -31,7 +31,6 @@ export default function useAsync<T extends ReadonlyArray<unknown>, V>(
 ): { read: () => PromiseResult<V>; forceReload: () => void } {
   const [reload, setReload] = useState(Symbol);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const read = useMemo(() => wrapPromise(cb(...args)), [...args, reload, cb]);
   const forceReload = useCallback(() => {
     setReload(Symbol("placeholder"));

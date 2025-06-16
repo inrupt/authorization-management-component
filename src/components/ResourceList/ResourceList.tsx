@@ -45,6 +45,7 @@ export interface ResourceDetailsWithProvenance extends ResourceDetails {
   grants: DatasetWithId[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const accessHeaders: HeaderData<string, any>[] = [
   {
     key: "type",

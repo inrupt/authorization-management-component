@@ -24,7 +24,6 @@
 import Modal from "../Modal/ControlledModal";
 import AMC_CURRENT_OP from "../../constants/currentOP";
 import { mapping } from "../../constants/OPStartServiceMapping";
-import { useEffect, useState } from "react";
 
 export function ProfileModal({
   isOpen,
@@ -52,7 +51,7 @@ export function ProfileModal({
     >
       {
         <p>
-          There's a problem with your WebID availability. Please go to{" "}
+          There is a problem with your WebID availability. Please go to{" "}
           <a href={`${startService}`}>your ESS provider start service</a> and
           finish the start flow.
         </p>

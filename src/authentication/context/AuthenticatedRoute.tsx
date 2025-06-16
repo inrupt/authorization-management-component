@@ -33,7 +33,7 @@ const isAuthCallback = (asPath: string) => {
     const params = route.searchParams;
 
     return params.has("error") || (params.has("code") && params.has("state"));
-  } catch (e) {
+  } catch (_e) {
     return false;
   }
 };

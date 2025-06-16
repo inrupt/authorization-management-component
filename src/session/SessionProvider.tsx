@@ -238,7 +238,7 @@ export default function SessionProvider({
         setState("waiting");
       }
     });
-  }, []);
+  }, [isAuthenticated, isUnAuthenticated, session.events]);
 
   useEffect(() => {
     if (state === "authenticated") {
@@ -252,7 +252,7 @@ export default function SessionProvider({
         }
       });
     }
-  }, [state]);
+  }, [session, state]);
 
   useEffect(() => {
     if (typeof accessEndpoint === "string") {

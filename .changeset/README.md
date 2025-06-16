@@ -9,8 +9,8 @@ We have a quick list of common questions to get you started engaging with this p
 
 Steps to use Changesets with this Repo.
 
-# 1 Commit as you normally would to your branch
-# 2 When you have code the constitues a patch/minor/major version bump then run `npm run bump-version`, you will be prompted to give a summary then that will later to be added to the changelog.md NOTE: you may add multiple changesets to once branch and the packages version will take the highest semvar change.
-# 3 If you want to add additional details to your notes you can edit the generated changesets file before you commit it
-# 4 Commit the changesets file and push your changes.
-# 5 On merge into `main` branch, the version will be bumped and release PR will be made. Look over this PR and merge to finish tagging the release. NOTE: if you do not commit a changesets file AT ALL on merge to main
+1. Commit as you normally would to your branch
+2. When you have code the constitues a patch/minor/major version bump then run `npm run bump-version`, you will be prompted to give a summary then that will later to be added to the changelog.md NOTE: you may add multiple changesets to once branch and the packages version will take the highest semvar change.
+3. If you want to add additional details to your notes you can edit the generated changesets file before you commit it
+4. Commit the changesets file and push your changes.
+5. On merge into `main` branch, the version will be bumped and release PR will be made. Look over this PR and merge to finish tagging the release. NOTE: if you do not commit a changesets file AT ALL on merge to main

@@ -54,7 +54,7 @@ export default async function getRequestors(options: {
       .map((a: DatasetWithId) => {
         try {
           return getRequestor(a);
-        } catch (e: unknown) {
+        } catch (_e: unknown) {
           // If the Access Grant requestor cannot be figured out,
           // the Grant cannot be considered in computing access.
           return undefined;

@@ -53,7 +53,6 @@ export default function useQueryParams() {
         pathname,
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length]);
 
   const redirect = useCallback(async () => {

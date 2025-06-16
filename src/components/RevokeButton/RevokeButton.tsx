@@ -67,7 +67,7 @@ export default function RevokeButton({
         grants.map((grant) => revokeAccessGrant(grant, { fetch })),
       );
       setState("revoked");
-    } catch (e) {
+    } catch (_e) {
       setState("error");
     }
   }, [grants, fetch]);

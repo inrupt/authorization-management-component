@@ -122,7 +122,7 @@ export default function ListAgentsWithVCs({
       }
       onAgentUpdate(agentsCount);
     }
-  }, [agents]);
+  }, [agents, onAgentUpdate]);
 
   return (
     <SuspendedList

@@ -61,7 +61,7 @@ export default function ToggleAccessModes({
         [mode]: false,
       });
     });
-  }, [requestedModes]);
+  }, [access, onAccessChange, requestedModes]);
 
   const allTrue = useMemo(
     () => requestedModes.every((mode) => access[mode as Operations]),

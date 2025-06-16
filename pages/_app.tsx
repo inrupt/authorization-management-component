@@ -39,9 +39,9 @@ function App({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
     // the dropdown component requires this specific import to work
-    // it needs to be done here do that document is defined
+    // it needs to be done here so that document is defined
 
-    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+    import("bootstrap/dist/js/bootstrap.bundle.min.js").catch(console.error);
   }, []);
 
   return (

@@ -63,8 +63,10 @@ function Approval({
   const { fetch: sessionFetch, session, logout } = useContext(SessionContext);
   const { getNameFromWebId } = useContext(WorkerContext);
   const [request, setRequest] = useState<AccessRequestType | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [err, setErr] = useState<any>(null);
   const [loadingApproveDeny, setLoadingApproveDeny] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [approveDenyError, setApproveDenyError] = useState<any>(false);
   const [signed, setSigned] = useState<Signed>();
 
@@ -91,6 +93,7 @@ function Approval({
       .catch((error) => setErr(error));
   }, [accessRequest, sessionFetch, getNameFromWebId]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkErrorForNonExistingResource = (approveDenyError: any) => {
     if (approveDenyError.response && approveDenyError.response.status === 404) {
       return "Error: Granting access to a non-existing resource is not supported in Legacy pods.";

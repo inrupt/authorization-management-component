@@ -114,7 +114,7 @@ export default function SessionProvider({
       } as Partial<Session> as Session,
     };
     return context;
-  }, []);
+  }, [mockAccessEndpoint, mockLoggedIn]);
   return (
     <SessionContext.Provider value={value}>{children}</SessionContext.Provider>
   );

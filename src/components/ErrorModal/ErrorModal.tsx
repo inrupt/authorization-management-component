@@ -23,6 +23,7 @@
 
 import Modal from "../Modal/ControlledModal";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const errString = (err: any) =>
   "message" in err ? `${err.message}` : `${err}`;
 

@@ -109,6 +109,7 @@ export function useOrdered<T extends string, V, R extends Record<T, V>>(
   const [{ orderedData, inverted }, sortBy] = useReducer<
     OrderState<T, V, R>,
     { headings: HeaderData<T, V>[]; data: R[] },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [any]
   >(orderReducer, { headings, data }, init);
   const ret = useMemo(

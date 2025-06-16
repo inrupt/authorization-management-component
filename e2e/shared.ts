@@ -26,7 +26,7 @@ import {
   expect as expect$1,
   OpenIdPage,
 } from "@inrupt/internal-playwright-helpers";
-import AxeBuilder from "@axe-core/playwright";
+import { AxeBuilder } from "@axe-core/playwright";
 import type { Locator, Page } from "@playwright/test";
 import {
   TESTID_OPENID_PROVIDER_INPUT,

@@ -47,9 +47,7 @@ export async function addToCache(url: string, cache: PurposeCache) {
         graph.termType === "DefaultGraph"
       ) {
         (cache[subject.value] ??= {})[
-          // if the predicate.value is not a key of the map object this won't be executed,
-          // as it is already checked in the if expression
-          // @ts-ignore
+          // @ts-expect-error if the predicate.value is not a key of the map object this won't be executed, as it is already checked in the if expression
           map[predicate.value] as "purposeLabel" | "definition"
         ] ??= object.value;
       }

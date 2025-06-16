@@ -39,4 +39,14 @@ export default defineConfig([
       ...next.configs["core-web-vitals"].rules,
     },
   },
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
+  },
 ]);

@@ -21,7 +21,6 @@
 // SOFTWARE.
 //
 
-import { useState } from "react";
 import styles from "./ToggleLegacy.module.scss";
 import Info from "../Info/Info";
 

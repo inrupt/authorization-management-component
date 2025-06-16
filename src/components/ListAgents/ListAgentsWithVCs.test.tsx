@@ -21,7 +21,7 @@
 // SOFTWARE.
 //
 
-import { render, waitFor, act } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import ListAgentsWithVCs from "./ListAgentsWithVCs";
 import WorkerProvider from "../../session/WorkerProvider.mock";
 import SessionProvider from "../../session/SessionProvider.mock";
