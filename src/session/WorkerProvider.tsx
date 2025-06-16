@@ -1,26 +1,28 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
+
+import type { ReactElement, ReactNode } from "react";
 import {
-  ReactElement,
-  ReactNode,
   createContext,
   useCallback,
   useContext,
@@ -35,7 +37,11 @@ import {
   getResourceInfo,
   getContentType as solidClientGetContentType,
 } from "@inrupt/solid-client";
-import { PurposeInfo, PurposeRequest, PurposeResponse } from "./workertypes";
+import type {
+  PurposeInfo,
+  PurposeRequest,
+  PurposeResponse,
+} from "./workertypes";
 import { SessionContext } from "./SessionProvider";
 import {
   getFromWebIdHelper,
@@ -94,12 +100,12 @@ export default function WorkerProvider({
   const nameRecord = useMemo<Record<string, Promise<string | null>>>(
     () => ({}),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [fetch]
+    [fetch],
   );
   const imageRecord = useMemo<Record<string, Promise<string | null>>>(
     () => ({}),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [fetch]
+    [fetch],
   );
   const purposeRecord = useMemo<Record<string, PurposeInfo>>(() => ({}), []);
   const invalidatedUrl = useMemo<Set<string>>(() => new Set(), []);
@@ -112,17 +118,15 @@ export default function WorkerProvider({
   }, []);
 
   const getImageFromWebId = useCallback(
-    // eslint-disable-next-line no-return-assign
     async (url: string) =>
       (imageRecord[url] ??= getFromWebIdHelper(url, imagePredicates, {
         fetch,
         allowedNamed: true,
       })),
-    [fetch, imageRecord]
+    [fetch, imageRecord],
   );
 
   const getNameFromWebId = useCallback(
-    // eslint-disable-next-line no-return-assign
     async (url: string) =>
       (nameRecord[url] ??= getFromWebIdHelper(url, namePredicates, {
         fetch,
@@ -134,7 +138,7 @@ export default function WorkerProvider({
       }),
     // We don't want to make resolvedNameRecord a dependency of the callback
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [fetch, nameRecord]
+    [fetch, nameRecord],
   );
 
   const getContentType = useMemo(() => {
@@ -179,7 +183,7 @@ export default function WorkerProvider({
     },
     // We don't want to make resolvedNameRecord a dependency of the callback
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [],
   );
 
   const getPurposeInfo = useCallback(
@@ -206,11 +210,11 @@ export default function WorkerProvider({
             type: "purpose",
             value: url,
             id,
-          } as PurposeRequest)
+          } as PurposeRequest),
         );
       });
     },
-    [worker, purposeRecord]
+    [worker, purposeRecord],
   );
 
   const value = useMemo(
@@ -229,7 +233,7 @@ export default function WorkerProvider({
       resolvedNameRecord,
       isValidAccessGrant,
       getContentType,
-    ]
+    ],
   );
 
   return (

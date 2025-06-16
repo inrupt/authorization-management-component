@@ -1,32 +1,32 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-import { ReactElement, useMemo } from "react";
 
-import { Session } from "@inrupt/solid-client-authn-browser";
-import {
-  ISessionContext,
-  ISessionProvider,
-  SessionContext,
-  createContextBase,
-} from "./SessionProvider";
+import type { ReactElement } from "react";
+import { useMemo } from "react";
+
+import type { Session } from "@inrupt/solid-client-authn-browser";
+import type { ISessionContext, ISessionProvider } from "./SessionProvider";
+import { SessionContext, createContextBase } from "./SessionProvider";
 import derive from "./mockData/derive";
 
 export const sessionFetch: typeof fetch = async (...args) => {
@@ -48,13 +48,13 @@ export const sessionFetch: typeof fetch = async (...args) => {
           verifiableCredential: subject
             ? derive.verifiableCredential.filter(
                 (vc) =>
-                  vc.credentialSubject.providedConsent.isProvidedTo === subject
+                  vc.credentialSubject.providedConsent.isProvidedTo === subject,
               )
             : derive.verifiableCredential,
         }),
         {
           headers: new Headers([["Content-Type", "application/json"]]),
-        }
+        },
       );
     }
     case "https://vc.ap.inrupt.com/status": {
@@ -69,7 +69,7 @@ export const sessionFetch: typeof fetch = async (...args) => {
       // Mock the revocation of the VCs by just removing them for now (note that this is completely incorrect
       // as they would still appear in reailty and just return false when trying to verify them)
       derive.verifiableCredential = derive.verifiableCredential.filter(
-        (vc) => vc.id !== credentialId
+        (vc) => vc.id !== credentialId,
       );
       return new Response(JSON.stringify(derive), {
         headers: new Headers([["Content-Type", "application/json"]]),
