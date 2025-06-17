@@ -50,7 +50,12 @@ const customJestConfig: Config = {
   // This enables usage with Sonarcloud's code coverage tooling:
   coverageReporters: process.env.CI ? ["text", "lcov"] : ["text"],
 
-  coveragePathIgnorePatterns: ["/node_modules/"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "e2e/",
+    "**/*.mock.tsx",
+    "pages/",
+  ],
 
   // Github-Actions reporter in CI:
   reporters: process.env.CI ? ["github-actions", "default"] : ["default"],
