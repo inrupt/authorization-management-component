@@ -49,4 +49,12 @@ export default defineConfig([
       ],
     },
   },
+  {
+    files: ["src/session/worker.ts"],
+    linterOptions: {
+      // In this file, there is a known directive unused in CI
+      // but used in local development.
+      reportUnusedDisableDirectives: "off",
+    },
+  },
 ]);

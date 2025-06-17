@@ -27,7 +27,7 @@ import { addToCache, defaultUrls } from "./PurposeCache";
 // This file is generated in a prepare step, but the shared linter
 // uses --ignore-scripts so this file does not exist when we run linting
 // in CI.
-
+// eslint-disable-next-line import/no-unresolved
 import purposeCacheImport from "../cache/purposesParsed";
 
 const purposeCache: PurposeCache = purposeCacheImport;
