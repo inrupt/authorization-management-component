@@ -61,7 +61,9 @@ export default function ToggleAccessModes({
         [mode]: false,
       });
     });
-  }, [access, onAccessChange, requestedModes]);
+    // FIXME useMemo should be used to avoid the update on each re-render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [requestedModes]);
 
   const allTrue = useMemo(
     () => requestedModes.every((mode) => access[mode as Operations]),
