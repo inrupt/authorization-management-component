@@ -9,7 +9,7 @@
     "dev:e2e": "cd e2e/test-app ; npm ci ; npm run dev",
     "dev": "next dev",
     "format": "prettier --write .",
-    "lint:check": "npm run lint:eslint",
+    "lint": "npm run lint:eslint",
     "lint:fix": "npm run lint:eslint -- --fix",
     "lint:eslint": "eslint --config eslint.config.mjs .",
     "prepare": "husky && npm run preparePurposes",
