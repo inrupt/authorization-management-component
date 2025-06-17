@@ -57,4 +57,8 @@ export default defineConfig([
       reportUnusedDisableDirectives: "off",
     },
   },
+  {
+    // This file is generated, and should not be linted.
+    ignores: ["src/cache/purposesParsed.ts"],
+  },
 ]);
