@@ -1,27 +1,28 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
+import type { ReactElement, ReactNode } from "react";
 import {
-  ReactElement,
-  ReactNode,
   createContext,
   useCallback,
   useEffect,
@@ -29,8 +30,8 @@ import {
   useState,
 } from "react";
 
+import type { Session } from "@inrupt/solid-client-authn-browser";
 import {
-  Session,
   fetch,
   getDefaultSession,
   login,
@@ -41,7 +42,7 @@ import { useRouter } from "next/router";
 import { getPodUrlAllFrom, getProfileAll } from "@inrupt/solid-client";
 import { getAccessApiEndpoint } from "@inrupt/solid-client-access-grants";
 import { getVerifiableCredentialApiConfiguration } from "@inrupt/solid-client-vc";
-import { VerifiableCredentialApiConfiguration } from "@inrupt/solid-client-vc/dist/common/common";
+import type { VerifiableCredentialApiConfiguration } from "@inrupt/solid-client-vc/dist/common/common";
 import {
   WebIdNotAvailable,
   DiscoveryNotAvailable,
@@ -79,9 +80,8 @@ export const createContextBase: () => ISessionContext = () => ({
   endpointConfiguration: undefined,
 });
 
-export const SessionContext = createContext<ISessionContext>(
-  createContextBase()
-);
+export const SessionContext =
+  createContext<ISessionContext>(createContextBase());
 
 /* eslint react/require-default-props: 0 */
 export interface ISessionProvider {
@@ -96,7 +96,7 @@ export interface ISessionProvider {
  */
 const discoverAccessEndpoint = async (
   session: Session,
-  callback: (endpoint: string) => void
+  callback: (endpoint: string) => void,
 ): Promise<void> => {
   if (typeof session.info.webId !== "string") {
     return;
@@ -108,13 +108,13 @@ const discoverAccessEndpoint = async (
     });
   } catch (e: unknown) {
     throw new WebIdNotAvailable(
-      `An error occured when looking up WebID ${session.info.webId}: ${e}`
+      `An error occured when looking up WebID ${session.info.webId}: ${e}`,
     );
   }
   const pods = getPodUrlAllFrom(profiles, session.info.webId);
   if (pods.length < 1) {
     throw new Error(
-      `No Pods could be discovered from WebID ${session.info.webId}`
+      `No Pods could be discovered from WebID ${session.info.webId}`,
     );
   }
   // FIXME arbitrarily pick the first Pod.
@@ -124,7 +124,7 @@ const discoverAccessEndpoint = async (
     endpoint = await getAccessApiEndpoint(podRoot);
   } catch (e: unknown) {
     throw new DiscoveryNotAvailable(
-      `Access endpoint discovery for Pod ${podRoot} failed: ${e}`
+      `Access endpoint discovery for Pod ${podRoot} failed: ${e}`,
     );
   }
   callback(endpoint);
@@ -160,7 +160,7 @@ const HintModal = ({
             "Your Pod Provider doesn't appear to support Access Grants. Please retry using a compliant Pod Provider.",
             {
               cause: error,
-            }
+            },
           )
         }
         isOpen={modalStatus}
@@ -193,7 +193,7 @@ export default function SessionProvider({
   const session = useMemo(getDefaultSession, []);
 
   const [state, setState] = useState<AuthState>(
-    session.info.isLoggedIn ? "authenticated" : "waiting"
+    session.info.isLoggedIn ? "authenticated" : "waiting",
   );
 
   const [accessEndpoint, setAccessEndpoint] = useState<string>();
@@ -225,7 +225,7 @@ export default function SessionProvider({
               throw error;
             }
             setState(
-              session.info?.isLoggedIn ? "authenticated" : "unauthenticated"
+              session.info?.isLoggedIn ? "authenticated" : "unauthenticated",
             );
           });
       }
@@ -238,7 +238,7 @@ export default function SessionProvider({
         setState("waiting");
       }
     });
-  }, []);
+  }, [isAuthenticated, isUnAuthenticated, session.events]);
 
   useEffect(() => {
     if (state === "authenticated") {
@@ -252,7 +252,7 @@ export default function SessionProvider({
         }
       });
     }
-  }, [state]);
+  }, [session, state]);
 
   useEffect(() => {
     if (typeof accessEndpoint === "string") {
@@ -264,7 +264,7 @@ export default function SessionProvider({
           } else {
             console.error(`An error occured: ${error}`);
           }
-        }
+        },
       );
     }
   }, [accessEndpoint]);
@@ -286,7 +286,7 @@ export default function SessionProvider({
         }
       }
     },
-    [isUnAuthenticated, onError, session]
+    [isUnAuthenticated, onError, session],
   );
 
   const logoutCallback = useCallback(
@@ -304,7 +304,7 @@ export default function SessionProvider({
         }
       }
     },
-    [isAuthenticated, onError, session]
+    [isAuthenticated, onError, session],
   );
 
   const value = useMemo<ISessionContext>(
@@ -326,7 +326,7 @@ export default function SessionProvider({
       session,
       accessEndpoint,
       accessEndpointConfig,
-    ]
+    ],
   );
 
   return (

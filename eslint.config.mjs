@@ -21,21 +21,44 @@
 // SOFTWARE.
 //
 
-export default [
+import inruptCfg from "@inrupt/eslint-config-base";
+import next from "@next/eslint-plugin-next";
+import jsxA11y from "eslint-plugin-jsx-a11y";
+
+import { defineConfig } from "eslint/config";
+
+export default defineConfig([
+  inruptCfg,
+  jsxA11y.flatConfigs.recommended,
   {
-    label: "Solidcommunity.net",
-    value: "https://solidcommunity.net/",
+    plugins: {
+      "@next/next": next,
+    },
+    rules: {
+      ...next.configs.recommended.rules,
+      ...next.configs["core-web-vitals"].rules,
+    },
   },
   {
-    label: "Solidweb.org",
-    value: "https://solidweb.org/",
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          caughtErrorsIgnorePattern: "^_",
+        },
+      ],
+    },
   },
   {
-    label: "inrupt.net",
-    value: "https://inrupt.net/",
+    files: ["src/session/worker.ts"],
+    linterOptions: {
+      // In this file, there is a known directive unused in CI
+      // but used in local development.
+      reportUnusedDisableDirectives: "off",
+    },
   },
   {
-    label: "Inrupt.com",
-    value: "https://login.inrupt.com",
+    // This file is generated, and should not be linted.
+    ignores: ["src/cache/purposesParsed.ts"],
   },
-];
+]);

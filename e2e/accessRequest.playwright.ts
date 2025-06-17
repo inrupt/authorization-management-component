@@ -1,25 +1,25 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { expect } from "@inrupt/internal-playwright-helpers";
 import { TESTID_LOGIN_BUTTON } from "@inrupt/internal-playwright-testids";
@@ -55,7 +55,7 @@ const test = test$.extend<{
       const resourceIri = page.getByTestId("resource-iri");
       await expect(resourceIri).toBeVisible({ timeout: TIMEOUT });
       await expect(resourceIri.textContent()).resolves.not.toBe(
-        "Resource creation failed"
+        "Resource creation failed",
       );
       // request access to resource
       await page.getByTestId("request-access").click();
@@ -66,7 +66,7 @@ const test = test$.extend<{
       await page.getByTestId("grant-access").click();
       await page.waitForURL(
         (url: URL) =>
-          url.hostname === AMI_URL.hostname && url.port === AMI_URL.port
+          url.hostname === AMI_URL.hostname && url.port === AMI_URL.port,
       );
 
       await expect(page.locator("h2")).toContainText("Connect with");
@@ -94,7 +94,7 @@ const test = test$.extend<{
           (url: URL) =>
             url.hostname === CLIENT_URL.hostname &&
             url.port === CLIENT_URL.port &&
-            url.searchParams.has(GRANT_VC_URL_PARAM_NAME)
+            url.searchParams.has(GRANT_VC_URL_PARAM_NAME),
         ),
         page.getByTestId("modal-primary-action").click(),
       ]);
@@ -154,7 +154,7 @@ test("access request approve flow", async ({
     "Some content.\n",
     {
       timeout: TIMEOUT,
-    }
+    },
   );
 
   // Wait for delete resource button to be available

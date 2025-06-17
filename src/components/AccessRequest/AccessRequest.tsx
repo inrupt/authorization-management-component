@@ -1,34 +1,40 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-import {
+
+import type {
   ApproveAccessRequestOverrides,
+  DatasetWithId,
+} from "@inrupt/solid-client-access-grants";
+import {
   getExpirationDate,
   getPurposes,
   getRequestor,
-  DatasetWithId,
 } from "@inrupt/solid-client-access-grants";
 import { useMemo, useState } from "react";
 import { getGroupedAccessModes } from "../../helpers/access/access";
 import Button from "../Button/Button";
-import DatePicker, { DateValue, durationItems } from "../DatePicker/DatePicker";
+import type { DateValue } from "../DatePicker/DatePicker";
+import DatePicker, { durationItems } from "../DatePicker/DatePicker";
 import ListResources from "../ListResources/ListResourcesBound";
 import ControlledModal from "../Modal/ControlledModal";
 import Modal from "../Modal/Modal";
@@ -88,13 +94,13 @@ export default function AccessRequest({
           type: "Date",
           value: data.expiration,
         }
-      : { type: "Duration", value: "Forever" }
+      : { type: "Duration", value: "Forever" },
   );
   const [access, onAccessChange] = useState(() =>
-    getGroupedAccessModes([accessRequest])
+    getGroupedAccessModes([accessRequest]),
   );
   const [purpose, setPurpose] = useState(() =>
-    getPurposes(accessRequest).map((url) => ({ url, allowed: false }))
+    getPurposes(accessRequest).map((url) => ({ url, allowed: false })),
   );
 
   const [warnModal, setWarnModal] = useState<
@@ -104,7 +110,7 @@ export default function AccessRequest({
   const onConfirm = () => {
     // If any of the access modes are changed then override the access field when approving the request
     const accessOverride = (["read", "write", "append"] as const).some(
-      (m) => data.baseModes[m] !== access[m]
+      (m) => data.baseModes[m] !== access[m],
     )
       ? access
       : undefined;
@@ -161,8 +167,8 @@ export default function AccessRequest({
               ...elem,
               allowed: !elem.allowed,
             }
-          : elem
-      )
+          : elem,
+      ),
     );
   };
 

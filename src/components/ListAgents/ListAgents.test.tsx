@@ -1,22 +1,24 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 import { render, waitFor, act } from "@testing-library/react";
@@ -41,7 +43,7 @@ describe("ListAgents", () => {
               /* noop */
             }}
           />
-        </WorkerProvider>
+        </WorkerProvider>,
       );
 
     await waitFor(() => {
@@ -56,47 +58,47 @@ describe("ListAgents", () => {
     expect(onDetails).toHaveBeenCalledTimes(4);
     expect(onDetails).toHaveBeenNthCalledWith(
       1,
-      "https://id.inrupt.com/jeswrtest51"
+      "https://id.inrupt.com/jeswrtest51",
     );
     expect(onDetails).toHaveBeenNthCalledWith(
       2,
-      "https://id.inrupt.com/testuser12345?lookup"
+      "https://id.inrupt.com/testuser12345?lookup",
     );
     expect(onDetails).toHaveBeenNthCalledWith(
       3,
-      "https://id.inrupt.com/jeswrtest51"
+      "https://id.inrupt.com/jeswrtest51",
     );
     expect(onDetails).toHaveBeenNthCalledWith(
       4,
-      "https://id.inrupt.com/testuser12345?lookup"
+      "https://id.inrupt.com/testuser12345?lookup",
     );
 
     // Clicking on the row *should* trigger onDetails
     getByTestId("agent-row[https://id.inrupt.com/jeswrtest51]").click();
     expect(onDetails).toHaveBeenNthCalledWith(
       5,
-      "https://id.inrupt.com/jeswrtest51"
+      "https://id.inrupt.com/jeswrtest51",
     );
 
     getByTestId(
-      "agent-row[https://id.inrupt.com/testuser12345?lookup]"
+      "agent-row[https://id.inrupt.com/testuser12345?lookup]",
     ).click();
     expect(onDetails).toHaveBeenNthCalledWith(
       6,
-      "https://id.inrupt.com/testuser12345?lookup"
+      "https://id.inrupt.com/testuser12345?lookup",
     );
 
     expect(asFragment()).toMatchSnapshot();
 
     // Clicking the sort icon for name should toggle the icon
     expect(getByTestId("table-heading-sort-icon-name")).toHaveClass(
-      "bi bi-sort-down sort-icon"
+      "bi bi-sort-down sort-icon",
     );
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual([
       "agent-row[https://id.inrupt.com/jeswrtest51]",
       "agent-row[https://id.inrupt.com/testuser12345?lookup]",
@@ -107,13 +109,13 @@ describe("ListAgents", () => {
     });
 
     expect(getByTestId("table-heading-sort-icon-name")).toHaveClass(
-      "bi bi-sort-up sort-icon"
+      "bi bi-sort-up sort-icon",
     );
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual([
       "agent-row[https://id.inrupt.com/testuser12345?lookup]",
       "agent-row[https://id.inrupt.com/jeswrtest51]",
@@ -121,7 +123,7 @@ describe("ListAgents", () => {
 
     // WebId should only invert after the second click since it is not in focus
     expect(getByTestId("table-heading-sort-icon-webId")).toHaveClass(
-      "bi bi-sort-down sort-icon"
+      "bi bi-sort-down sort-icon",
     );
 
     act(() => {
@@ -129,13 +131,13 @@ describe("ListAgents", () => {
     });
 
     expect(getByTestId("table-heading-sort-icon-webId")).toHaveClass(
-      "bi bi-sort-down sort-icon"
+      "bi bi-sort-down sort-icon",
     );
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual([
       "agent-row[https://id.inrupt.com/jeswrtest51]",
       "agent-row[https://id.inrupt.com/testuser12345?lookup]",
@@ -146,13 +148,13 @@ describe("ListAgents", () => {
     });
 
     expect(getByTestId("table-heading-sort-icon-webId")).toHaveClass(
-      "bi bi-sort-up sort-icon"
+      "bi bi-sort-up sort-icon",
     );
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual([
       "agent-row[https://id.inrupt.com/testuser12345?lookup]",
       "agent-row[https://id.inrupt.com/jeswrtest51]",
@@ -176,12 +178,12 @@ describe("ListAgents", () => {
             /* noop */
           }}
         />
-      </WorkerProvider>
+      </WorkerProvider>,
     );
 
     await waitFor(() => {
       expect(
-        getByText("You have not yet granted access to anyone.")
+        getByText("You have not yet granted access to anyone."),
       ).toBeVisible();
     });
 
@@ -209,7 +211,7 @@ describe("ListAgents", () => {
             /* noop */
           }}
         />
-      </WorkerProvider>
+      </WorkerProvider>,
     );
 
     await waitFor(() => {
@@ -218,8 +220,8 @@ describe("ListAgents", () => {
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual(["agent-row[https://id.inrupt.com/jeswrtest51]"]);
 
     // Accessibility tests
@@ -244,7 +246,7 @@ describe("ListAgents", () => {
             /* noop */
           }}
         />
-      </WorkerProvider>
+      </WorkerProvider>,
     );
 
     await waitFor(() => {
@@ -253,8 +255,8 @@ describe("ListAgents", () => {
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual(["agent-row[https://id.inrupt.com/jeswrtest51]"]);
 
     // Accessibility tests
@@ -279,7 +281,7 @@ describe("ListAgents", () => {
             /* noop */
           }}
         />
-      </WorkerProvider>
+      </WorkerProvider>,
     );
 
     await waitFor(() => {
@@ -288,8 +290,8 @@ describe("ListAgents", () => {
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual(["agent-row[https://id.inrupt.com/jeswrtest51]"]);
 
     // Accessibility tests
@@ -314,7 +316,7 @@ describe("ListAgents", () => {
             /* noop */
           }}
         />
-      </WorkerProvider>
+      </WorkerProvider>,
     );
 
     await waitFor(() => {
@@ -323,8 +325,8 @@ describe("ListAgents", () => {
 
     expect(
       getAllByTestId("agent-row", { exact: false }).map((elem) =>
-        elem.getAttribute("data-testid")
-      )
+        elem.getAttribute("data-testid"),
+      ),
     ).toEqual(["agent-row[https://id.inrupt.com/jeswrtest51]"]);
 
     // Accessibility tests

@@ -1,35 +1,37 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
-import {
+import type {
   AccessGrant,
-  getResources,
   isValidAccessGrant,
   DatasetWithId,
 } from "@inrupt/solid-client-access-grants";
-import { Session } from "@inrupt/solid-client-authn-browser";
+import { getResources } from "@inrupt/solid-client-access-grants";
+import type { Session } from "@inrupt/solid-client-authn-browser";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Suspense, useCallback, useContext, useState } from "react";
-import { VerifiableCredentialApiConfiguration } from "@inrupt/solid-client-vc/dist/common/common";
+import type { VerifiableCredentialApiConfiguration } from "@inrupt/solid-client-vc/dist/common/common";
 import AuthenticatedRoute from "../../src/authentication/context/AuthenticatedRoute";
 import { resourceDetails } from "../../src/components/AccessRequest/utils/getResources";
 import { ErrorModal } from "../../src/components/ErrorModal/ErrorModal";
@@ -39,9 +41,8 @@ import {
   DisplayAgent,
   DisplayImage,
 } from "../../src/components/PromiseText/PromiseText";
-import ResourceList, {
-  ResourceDetailsWithProvenance,
-} from "../../src/components/ResourceList/ResourceList";
+import type { ResourceDetailsWithProvenance } from "../../src/components/ResourceList/ResourceList";
+import ResourceList from "../../src/components/ResourceList/ResourceList";
 import RevokeButton from "../../src/components/RevokeButton/RevokeButton";
 import Sidebar from "../../src/components/Sidebar/Sidebar";
 import {
@@ -50,7 +51,7 @@ import {
 } from "../../src/helpers/access/access";
 import getValidAccessGrants from "../../src/helpers/access/getValidAccessGrants";
 import useAsync from "../../src/helpers/suspense/useAsync";
-import { PromiseResult } from "../../src/helpers/suspense/wrapPromise";
+import type { PromiseResult } from "../../src/helpers/suspense/wrapPromise";
 import { SessionContext } from "../../src/session/SessionProvider";
 import { WorkerContext } from "../../src/session/WorkerProvider";
 import rootStyles from "../Home.module.scss";
@@ -59,7 +60,7 @@ import GrantActions from "../../src/components/GrantActions/GrantActions";
 
 function getAllResourcesFromGrants(
   grants: DatasetWithId[],
-  session: Session
+  session: Session,
 ): ResourceDetailsWithProvenance[] {
   const record: Record<string, DatasetWithId[]> = {};
 
@@ -76,7 +77,7 @@ function getAllResourcesFromGrants(
         fetch: session.fetch,
       })[0],
       expiry: getLatestExpirationDate(
-        groupedGrants as unknown as AccessGrant[]
+        groupedGrants as unknown as AccessGrant[],
       ),
       access: getGroupedAccessModes(groupedGrants as unknown as AccessGrant[]),
       grants: groupedGrants,
@@ -91,7 +92,7 @@ async function getAllGrants(
   session: Session,
   _isValidAccessGrant: (
     ..._args: Parameters<typeof isValidAccessGrant>
-  ) => Promise<boolean>
+  ) => Promise<boolean>,
 ): Promise<DatasetWithId[]> {
   if (
     session.info.isLoggedIn &&
@@ -107,7 +108,7 @@ async function getAllGrants(
         includeExpired: false,
         accessEndpoint,
         endpointConfiguration,
-      }
+      },
     );
   }
 
@@ -214,7 +215,7 @@ function RevokerSuspense({
   if (data.status === "error" || data.value.length === 0) {
     // If the grants cannot be loaded then we should not display a button
     // to revoke them
-    // eslint-disable-next-line react/jsx-no-useless-fragment
+
     return <></>;
   }
 

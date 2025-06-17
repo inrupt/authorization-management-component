@@ -1,22 +1,24 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 import * as React from "react";
@@ -26,24 +28,24 @@ import userEvent from "@testing-library/user-event";
 // eslint-disable @typescript-eslint/ban-ts-comment
 // import { jest } from "@jest/globals";
 
-import { NextRouter, useRouter } from "next/router";
-import SolidClient from "@inrupt/solid-client";
+import type { NextRouter, useRouter } from "next/router";
+import type SolidClient from "@inrupt/solid-client";
 import type { getProfileAll, getPodUrlAllFrom } from "@inrupt/solid-client";
 import type SolidClientAuthnBrowser from "@inrupt/solid-client-authn-browser";
-import { Session } from "@inrupt/solid-client-authn-browser";
-import { EventEmitter } from "stream";
+import type { Session } from "@inrupt/solid-client-authn-browser";
+import type { EventEmitter } from "stream";
 import SessionProvider, { SessionContext } from "./SessionProvider";
 
 jest.mock("@inrupt/solid-client-authn-browser");
 jest.mock("@inrupt/solid-client", () => {
   const actualSolidClient = jest.requireActual<typeof SolidClient>(
-    "@inrupt/solid-client"
+    "@inrupt/solid-client",
   );
   return {
     // @ts-expect-error Using jest globals causes issues with jest signatures.
     getProfileAll: jest.fn<typeof getProfileAll>().mockResolvedValue({
       webIdProfile: actualSolidClient.mockSolidDatasetFrom(
-        "https://example.org/id"
+        "https://example.org/id",
       ),
       altProfileAll: [],
     }),
@@ -76,12 +78,12 @@ function ChildComponent(): React.ReactElement {
       )}
       <div data-testid="state">{state}</div>
       <div data-testid="session">{JSON.stringify(session)}</div>
-      <button type="button" onClick={async () => await sessionLogin({})}>
+      <button type="button" onClick={async () => sessionLogin({})}>
         Login
       </button>
       <button
         type="button"
-        onClick={async () => await sessionLogout()}
+        onClick={async () => sessionLogout()}
         data-testid="logout"
       >
         Logout
@@ -117,7 +119,7 @@ describe("Testing SessionContext", () => {
     handleIncomingRedirect.mockResolvedValue(session.info);
 
     jest.requireMock<typeof SolidClientAuthnBrowser>(
-      "@inrupt/solid-client-authn-browser"
+      "@inrupt/solid-client-authn-browser",
     ).getDefaultSession = jest
       // @ts-expect-error Using jest globals causes issues with jest signatures.
       .fn<typeof SolidClientAuthnBrowser.getDefaultSession>()
@@ -138,7 +140,7 @@ describe("Testing SessionContext", () => {
     render(
       <SessionProvider onError={onError}>
         <ChildComponent />
-      </SessionProvider>
+      </SessionProvider>,
     );
 
     await waitFor(() => {
@@ -152,7 +154,7 @@ describe("Testing SessionContext", () => {
       documentBody = render(
         <SessionProvider>
           <ChildComponent />
-        </SessionProvider>
+        </SessionProvider>,
       );
     });
 
@@ -174,7 +176,7 @@ describe("Testing SessionContext", () => {
   describe("Resolving handleIncomingRedirect", () => {
     beforeEach(() => {
       handleIncomingRedirect.mockResolvedValueOnce(
-        Promise.resolve(session.info)
+        Promise.resolve(session.info),
       );
     });
 
@@ -183,7 +185,7 @@ describe("Testing SessionContext", () => {
         documentBody = render(
           <SessionProvider>
             <ChildComponent />
-          </SessionProvider>
+          </SessionProvider>,
         );
       });
 
@@ -205,7 +207,7 @@ describe("Testing SessionContext", () => {
         documentBody = render(
           <SessionProvider>
             <ChildComponent />
-          </SessionProvider>
+          </SessionProvider>,
         );
       });
 
@@ -242,18 +244,18 @@ describe("Testing SessionContext", () => {
       const { getByText } = render(
         <SessionProvider onError={onError}>
           <ChildComponent />
-        </SessionProvider>
+        </SessionProvider>,
       );
 
       await waitFor(() => {
         expect(session.handleIncomingRedirect).toHaveBeenCalledTimes(
-          selector === "Login" ? 1 : 0
+          selector === "Login" ? 1 : 0,
         );
       });
 
       await user.click(getByText(selector));
 
       expect(onError).toHaveBeenCalledTimes(1);
-    }
+    },
   );
 });

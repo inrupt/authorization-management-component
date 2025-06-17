@@ -1,25 +1,25 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { expect } from "@inrupt/internal-playwright-helpers";
 import {
@@ -43,7 +43,7 @@ import {
   getFromWebIdHelper,
   namePredicates,
 } from "../src/helpers/profile/profile";
-// eslint-disable-next-line import/no-relative-packages
+
 import { retryAsync } from "./test-app/src/utils";
 
 const setupEnvironment = getNodeTestingEnvironment();
@@ -75,7 +75,7 @@ async function createAccessGrant(
   requestor: Session,
   resource: string,
   // Lifetime of the access grant in minutes
-  timeout = 20
+  timeout = 20,
 ) {
   const request = await retryAsync(async () =>
     issueAccessRequest(
@@ -91,12 +91,12 @@ async function createAccessGrant(
       },
       {
         fetch: requestor.fetch,
-      }
-    )
+      },
+    ),
   );
 
   const grant = await retryAsync(() =>
-    approveAccessRequest(request.id, undefined, { fetch: owner.fetch })
+    approveAccessRequest(request.id, undefined, { fetch: owner.fetch }),
   );
 
   return grant;
@@ -112,13 +112,13 @@ async function createResource(owner: Session, root: string) {
     saveFileInContainer(root, new File([fileContent], fileName), {
       slug: fileName,
       fetch: owner.fetch,
-    })
+    }),
   );
   return { sharedFileIri: getSourceUrl(file), fileContent, fileName };
 }
 
 async function removeResource(owner: Session, resource: string) {
-  return await retryAsync(() => deleteFile(resource, { fetch: owner.fetch }));
+  return retryAsync(() => deleteFile(resource, { fetch: owner.fetch }));
 }
 
 async function setup() {
@@ -132,15 +132,15 @@ async function setup() {
     throw new Error("requestor required to run this test");
   }
   const owner = await createLoggedInSession(
-    setupEnvironment.clientCredentials.owner
+    setupEnvironment.clientCredentials.owner,
   );
   const requestor = await createLoggedInSession(
-    setupEnvironment.clientCredentials.requestor
+    setupEnvironment.clientCredentials.requestor,
   );
   const requestorName = await retryAsync(() =>
     getFromWebIdHelper(assertNonNull(requestor.info.webId), namePredicates, {
       fetch: requestor.fetch,
-    })
+    }),
   );
   const root = await retryAsync(() => getPodRoot(owner));
   const { sharedFileIri, fileContent } = await createResource(owner, root);
@@ -182,9 +182,8 @@ test("manage page", async ({ page, auth, visible, setup }) => {
   await page.waitForURL(new URL("*", AMI_URL).toString());
 
   if (!requestorName) {
-    // eslint-disable-next-line no-console
     console.warn(
-      "Running E2E test with an inaccessible pretty name for the requestor"
+      "Running E2E test with an inaccessible pretty name for the requestor",
     );
   }
 
@@ -197,7 +196,7 @@ test("manage page", async ({ page, auth, visible, setup }) => {
       timeout: TIMEOUT,
     });
     await visible(
-      page.getByTestId(`agent-row[${assertNonNull(requestor.info.webId)}]`)
+      page.getByTestId(`agent-row[${assertNonNull(requestor.info.webId)}]`),
     );
     if (requestorName) {
       await expect(page.getByTestId("agent-name")).toContainText(requestorName);
@@ -217,14 +216,14 @@ test("manage page", async ({ page, auth, visible, setup }) => {
 
   // Search by first part of name
   await testSearch(
-    (requestorName ?? assertNonNull(requestor.info.webId)).split(" ")[0]
+    (requestorName ?? assertNonNull(requestor.info.webId)).split(" ")[0],
   );
 
   // Should not be visible when searching for a UUID that should not be in the URL or requestor name
   await page.getByTestId("agent-search-input").fill(v4());
   await visible(
     page.getByTestId(`agent-row[${assertNonNull(requestor.info.webId)}]`),
-    false
+    false,
   );
 });
 
@@ -255,7 +254,7 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   // to the one used to perform the other management tests
   const { sharedFileIri, fileContent, fileName } = await createResource(
     owner,
-    root
+    root,
   );
 
   // We only need to keep this access grant alive for 2 minutes as tests have a 2.5
@@ -265,7 +264,7 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   const sharedFile = await retryAsync(() =>
     getFileUsingAccessGrant(sharedFileIri, grant, {
       fetch: addUserAgent(requestor.fetch, TEST_USER_AGENT),
-    })
+    }),
   );
   await expect(sharedFile.text()).resolves.toBe(fileContent);
 
@@ -292,8 +291,8 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   await page
     .getByTestId(
       `resource-row-agent[${assertNonNull(
-        requestor.info.webId
-      )}]-resource[${sharedFileIri}]`
+        requestor.info.webId,
+      )}]-resource[${sharedFileIri}]`,
     )
     .click();
 
@@ -318,14 +317,14 @@ test("resources page", async ({ page, auth, visible, setup, browserName }) => {
   await page.getByTestId("modal-ready").isVisible();
   await visible(
     page.getByText(`Access to ${fileName} has been Revoked`),
-    false
+    false,
   );
 
   // Making sure revocation has occurred.
   const filePromise = retryAsync(() =>
     getFileUsingAccessGrant(sharedFileIri, grant, {
       fetch: addUserAgent(requestor.fetch, TEST_USER_AGENT),
-    })
+    }),
   );
 
   // After revocation getFile should throw errors
