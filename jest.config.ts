@@ -53,7 +53,7 @@ const customJestConfig: Config = {
   coveragePathIgnorePatterns: [
     "/node_modules/",
     "e2e/",
-    "**/*.mock.tsx",
+    ".*.mock.tsx",
     "pages/",
   ],
 
