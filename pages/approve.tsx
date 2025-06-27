@@ -1,27 +1,28 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
-/* eslint-disable no-console */
+import type { AccessRequest as AccessRequestType } from "@inrupt/solid-client-access-grants";
 import {
-  AccessRequest as AccessRequestType,
   GRANT_VC_URL_PARAM_NAME,
   approveAccessRequest,
   denyAccessRequest,
@@ -31,13 +32,8 @@ import {
 } from "@inrupt/solid-client-access-grants";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import {
-  ReactElement,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import type { ReactElement } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import AuthenticatedRoute from "../src/authentication/context/AuthenticatedRoute";
 import AccessRequest from "../src/components/AccessRequest/AccessRequest";
 import Modal from "../src/components/Modal/ControlledModal";
@@ -67,8 +63,10 @@ function Approval({
   const { fetch: sessionFetch, session, logout } = useContext(SessionContext);
   const { getNameFromWebId } = useContext(WorkerContext);
   const [request, setRequest] = useState<AccessRequestType | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [err, setErr] = useState<any>(null);
   const [loadingApproveDeny, setLoadingApproveDeny] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [approveDenyError, setApproveDenyError] = useState<any>(false);
   const [signed, setSigned] = useState<Signed>();
 
@@ -95,6 +93,7 @@ function Approval({
       .catch((error) => setErr(error));
   }, [accessRequest, sessionFetch, getNameFromWebId]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const checkErrorForNonExistingResource = (approveDenyError: any) => {
     if (approveDenyError.response && approveDenyError.response.status === 404) {
       return "Error: Granting access to a non-existing resource is not supported in Legacy pods.";
@@ -250,7 +249,7 @@ function Approval({
                     // updateAcr is false by default. However, for legacy pods provisioned
                     // before March 2023, we still need to update the ACR.
                     updateAcr: updateAcr,
-                  }
+                  },
                 );
                 setSigned({ type: "Approved", vc: signedVc.id });
                 setLoadingApproveDeny(false);
