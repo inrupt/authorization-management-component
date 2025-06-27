@@ -11,10 +11,10 @@
     "lint:eslint": "eslint . --ext=.js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@inrupt/internal-playwright-testids": "^3.2.7",
-    "@inrupt/internal-test-env": "^3.2.7",
+    "@inrupt/internal-playwright-testids": "^4.0.3",
+    "@inrupt/internal-test-env": "^4.0.3",
     "@inrupt/solid-client": "^2.1.2",
-    "@inrupt/solid-client-access-grants": "^3.3.0",
+    "@inrupt/solid-client-access-grants": "^3.3.1",
     "@inrupt/solid-client-authn-browser": "^2.5.0",
     "@inrupt/solid-client-authn-node": "^2.5.0",
     "@inrupt/solid-client-vc": "^1.2.0",
@@ -22,10 +22,10 @@
     "react": "^19.0.0"
   },
   "devDependencies": {
-    "@types/node": "24.0.0",
+    "@types/node": "24.0.3",
     "@types/react": "19.0.12",
     "eslint": "8.57.1",
-    "eslint-config-next": "15.3.3",
+    "eslint-config-next": "15.3.4",
     "typescript": "5.8.3"
   }
 }
