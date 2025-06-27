@@ -1,22 +1,24 @@
+// MIT License
 //
 // Copyright Inrupt Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal in
-// the Software without restriction, including without limitation the rights to use,
-// copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the
-// Software, and to permit persons to whom the Software is furnished to do so,
-// subject to the following conditions:
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-// INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-// PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-// HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-// OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-// SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 //
 
 import {
@@ -30,10 +32,8 @@ import {
   redirectToAccessManagementUi,
   GRANT_VC_URL_PARAM_NAME,
 } from "@inrupt/solid-client-access-grants";
-import {
-  DatasetWithId,
-  verifiableCredentialToDataset,
-} from "@inrupt/solid-client-vc";
+import type { DatasetWithId } from "@inrupt/solid-client-vc";
+import { verifiableCredentialToDataset } from "@inrupt/solid-client-vc";
 import { getDefaultSession } from "@inrupt/solid-client-authn-browser";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -69,7 +69,7 @@ export default function AccessGrant({
     const resourceOwnerPodAll = await getPodUrlAll(session.info.webId);
     if (resourceOwnerPodAll.length === 0) {
       setErrorMessage(
-        "The Resource Owner WebID Profile is missing a link to at least one Pod root."
+        "The Resource Owner WebID Profile is missing a link to at least one Pod root.",
       );
     }
     try {
@@ -81,11 +81,11 @@ export default function AccessGrant({
           }),
           {
             fetch: session.fetch,
-          }
-        )
+          },
+        ),
       );
       setSharedResourceIri(getSourceUrl(savedFile));
-    } catch (e) {
+    } catch (_e) {
       setSharedResourceIri("Resource creation failed");
     }
   };
@@ -111,31 +111,27 @@ export default function AccessGrant({
         body: JSON.stringify(reqBody),
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-      })
+      }),
     );
 
     const grantInfo = await verifiableCredentialToDataset(
-      (
-        await typeRequest.json()
-      ).accessRequest
+      (await typeRequest.json()).accessRequest,
     );
     setAccessRequest(grantInfo);
   };
 
   const handleCallAuthedGrant = async () => {
     if (!accessGrant) return;
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+
     const fetchedAccessGrant = await retryAsync(() =>
       fetch("http://localhost:8080/api/accessGrant", {
         body: JSON.stringify({ grantUrl: accessGrant }),
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-      })
+      }),
     );
     const grantInfo = await verifiableCredentialToDataset(
-      (
-        await fetchedAccessGrant.json()
-      ).accessGrant
+      (await fetchedAccessGrant.json()).accessGrant,
     );
     setSharedResourceIri(getResources(grantInfo)[0]);
     setAccessGrantBody(grantInfo);
@@ -168,14 +164,14 @@ export default function AccessGrant({
     <>
       <div>
         <button
-          onClick={async () => await handleCreate()}
+          onClick={async () => handleCreate()}
           data-testid="create-resource"
           type="button"
         >
           Create resource
         </button>
         <button
-          onClick={async () => await handleDelete()}
+          onClick={async () => handleDelete()}
           data-testid="delete-resource"
           type="button"
         >
@@ -190,7 +186,7 @@ export default function AccessGrant({
         <button
           type="button"
           data-testid="request-access"
-          onClick={async () => await handleRequestAccess()}
+          onClick={async () => handleRequestAccess()}
         >
           Request access to resource
         </button>
@@ -220,7 +216,7 @@ export default function AccessGrant({
                 // on solid-client-authn-browser, which is picked up automatically for convenience in
                 // browser-side apps. A typical node app would not have this dependence.
                 fetch: session.fetch,
-              }
+              },
             );
           }}
         >
