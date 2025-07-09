@@ -1,0 +1,14 @@
+app:
+  applicationId: 87d47fb8-69ab-44fc-835b-a7f6c5d793ba
+  env: Production
+  host: https://amc.inrupt.com
+
+hawkAddOn:
+  replacer:
+    rules:
+      - matchString: "User-Agent.*"
+        replacement: "User-Agent: HawkScanAgent"
+        replaceOnly: true
+        isRegex: true
+
+

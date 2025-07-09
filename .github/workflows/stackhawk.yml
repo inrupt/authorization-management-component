@@ -1,0 +1,29 @@
+name: AMC DAST Scan
+
+on:
+  schedule:
+    # Run every six hours on a schedule
+    - cron: "51 */6 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  stackhawk:
+    name: StackHawk DAST Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run HawkScan
+        uses: stackhawk/hawkscan-action@29a62fe1e926ea50ac87a1b64efc59b82ffd5b7d # v2
+        with:
+          apiKey: ${{ secrets.HAWK_API_KEY }}
+
+
