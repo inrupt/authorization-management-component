@@ -29,7 +29,7 @@
     "@comunica/core": "^4.0.2",
     "@inrupt/solid-client": "^2.1.2",
     "@inrupt/solid-client-access-grants": "^3.3.1",
-    "@inrupt/solid-client-authn-browser": "^2.5.0",
+    "@inrupt/solid-client-authn-browser": "^3.1.0",
     "@inrupt/solid-client-authn-node": "^2.3.0",
     "@inrupt/solid-client-vc": "^1.1.0",
     "@popperjs/core": "^2.11.8",
