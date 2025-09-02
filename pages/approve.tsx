@@ -21,6 +21,8 @@
 // SOFTWARE.
 //
 
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+
 import type { AccessRequest as AccessRequestType } from "@inrupt/solid-client-access-grants";
 import {
   GRANT_VC_URL_PARAM_NAME,
