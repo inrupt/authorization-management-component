@@ -20,6 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 //
+/* eslint-disable camelcase */
 
 export function buildClientIdentifierDoc(hostname: URL, clientId: URL) {
   return {

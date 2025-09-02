@@ -45,8 +45,10 @@ function sortData<T extends string, V, R extends Record<T, V>>(
 ) {
   return data.sort((a, b) => {
     for (const key of order) {
-      const sort = helpers[key].sortBy!(a[key], b[key]);
-      if (sort !== 0) return inverted[key] ? -sort : sort;
+      if (typeof helpers[key].sortBy === "function") {
+        const sort = helpers[key].sortBy(a[key], b[key]);
+        if (sort !== 0) return inverted[key] ? -sort : sort;
+      }
     }
     return 0;
   });
