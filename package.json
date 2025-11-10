@@ -53,7 +53,7 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.10.2",
-    "@inrupt/eslint-config-base": "^4.0.5",
+    "@inrupt/eslint-config-base": "^4.0.7",
     "@inrupt/internal-playwright-helpers": "^4.0.5",
     "@inrupt/internal-playwright-testids": "^4.0.3",
     "@inrupt/internal-test-env": "^4.0.3",
