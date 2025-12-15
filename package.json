@@ -27,7 +27,7 @@
     "@changesets/cli": "^2.29.7",
     "@comunica/context-entries": "^4.4.1",
     "@comunica/core": "^4.4.0",
-    "@inrupt/solid-client": "^2.1.2",
+    "@inrupt/solid-client": "^3.0.0",
     "@inrupt/solid-client-access-grants": "^4.0.1",
     "@inrupt/solid-client-authn-browser": "^3.1.0",
     "@inrupt/solid-client-authn-node": "^3.1.1",
