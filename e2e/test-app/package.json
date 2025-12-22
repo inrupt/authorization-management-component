@@ -19,7 +19,7 @@
     "@inrupt/solid-client-authn-node": "^3.1.1",
     "@inrupt/solid-client-vc": "^2.0.1",
     "next": "^16.0.10",
-    "react": "^19.2.1"
+    "react": "^19.2.3"
   },
   "devDependencies": {
     "@types/node": "25.0.2",
