@@ -19,11 +19,11 @@
     "@inrupt/solid-client-authn-node": "^3.1.1",
     "@inrupt/solid-client-vc": "^2.0.1",
     "next": "^16.1.6",
-    "react": "^19.2.3"
+    "react": "^19.2.4"
   },
   "devDependencies": {
     "@types/node": "25.2.0",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.11",
     "eslint": "8.57.1",
     "eslint-config-next": "16.1.6",
     "typescript": "5.9.3"
