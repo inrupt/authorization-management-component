@@ -22,7 +22,7 @@ jobs:
       - run: npm ci
       - name: Publish release tags and changelogs
         id: changesets
-        uses: changesets/action@e0145edc7d9d8679003495b11f87bd8ef63c0cba # v1
+        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1
         with:
           version: npm run version
           publish: npm run release
